@@ -1,0 +1,13 @@
+{
+  "name": "lost-and-found",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ChiangHaoWei/LostNFound.git",
+  "author": "ChiangHaoWei",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "cd frontend && yarn start",
+    "server": "cd backend && yarn start"
+  }
+}
