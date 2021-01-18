@@ -58,6 +58,8 @@ const popItem = (itemID) => {
     items.findIndex((item) => item.id === itemID), 1
   )[0];
 
+  console.log("deletedItem:", deletedItem);
+
   return deletedItem;
 };
 
