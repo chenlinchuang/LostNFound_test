@@ -5,7 +5,7 @@ import React from "react";
   Route,
   Link
 } from "react-router-dom"; */
-import LostForm from "./components/LostForm";
+import LostForm from "./components/ImgUpload";
 import "./App.css";
 
 function App() {
