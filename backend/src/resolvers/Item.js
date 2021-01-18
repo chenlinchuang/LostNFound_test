@@ -1,5 +1,3 @@
-import pic from "../data";
-
 const timeToString = (time) => {
   const t = new Date(time);
   return {

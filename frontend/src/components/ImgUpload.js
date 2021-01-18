@@ -47,13 +47,12 @@ const ImgUpload = () => {
     console.log(Math.round((100 * e.loaded) / e.total));
   };
   const imguploadHandler = async () => {
-    // eslint-disable-next-line no-console
-    const reader = new FileReader();
+    // const reader = new FileReader();
 
-    reader.readAsDataURL(pictures[0]);
-    reader.onload = () => {
-      console.log("img", reader.result);
-    };
+    // reader.readAsDataURL(pictures[0]);
+    // reader.onload = () => {
+    //   console.log("img", reader.result);
+    // };
     console.log(pictures);
     const formData = new FormData();
     formData.append("image", pictures);
