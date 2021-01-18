@@ -1,0 +1,42 @@
+type Query {
+  items(query: String, id: ID): [Item!]!
+}
+
+type Mutation {
+  createItem(data: CreateItemInput!)
+  updateItem(id: ID!)
+  deleteItem(id: ID!)
+}
+
+input CreateItemInput {
+  briefIntro: String!
+  time: Date!
+  location: String!
+  category: String!
+  description: String
+  pic: Picture
+}
+
+type Item {
+  id: ID!
+  briefIntro: String!
+  time: Date!
+  location: String!
+  category: String!
+  description: String
+  pic: Picture
+}
+
+type Date {
+  year: Int!
+  month: Int!
+  day: Int!
+  seconds: Int!
+}
+
+type Picture {
+  id: ID!
+  pic: String!
+  filename: String!
+  itemID: ID!
+}
