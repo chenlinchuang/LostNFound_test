@@ -1,11 +1,12 @@
 type Query {
   items(query: String, id: ID): [Item!]!
+  pictures(query: String, id: ID): [Picture!]!
 }
 
 type Mutation {
-  createItem(data: CreateItemInput!, time: TimeInput!): Item!
+  createItem(data: CreateItemInput!, time: TimeInput!, pic: PictureInput, lastModified: TimeInput): Item!
   updateItem(data: UpdateItemInput!, time: TimeInput): Item!
-  deleteItem(id: ID!): Item!
+  deleteItem(id: ID!): ID!
 }
 
 input CreateItemInput {
@@ -13,7 +14,6 @@ input CreateItemInput {
   location: String!
   category: ID!
   description: String
-  pic: String
 }
 
 input TimeInput {
@@ -25,6 +25,11 @@ input TimeInput {
   second: Int
 }
 
+input PictureInput {
+  DataURL: String!
+  filename: String!
+}
+
 input UpdateItemInput {
   id: ID!
   briefIntro: String
@@ -32,7 +37,6 @@ input UpdateItemInput {
   location: String
   category: ID
   description: String
-  pic: String
 }
 
 type Item {
@@ -56,12 +60,14 @@ type Date {
 
 type Picture {
   id: ID!
-  pic: String!
+  DataURL: String!
   filename: String!
-  itemID: ID!
+  item: Item!
+  lastModified: Date!
 }
 
 type Category {
   id: ID!
   name: String!
+  items: [Item]!
 }

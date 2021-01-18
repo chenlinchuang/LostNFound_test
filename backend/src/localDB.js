@@ -8,7 +8,25 @@ const items = [
     category: "101",
     time: 1610937807132,
     description: "123456879",
+    pic: "11",
   },
+  {
+    briefIntro: "water bottle",
+    id: "2",
+    location: "MD401",
+    category: "103",
+    time: 1610930807132,
+    description: "water water water",
+    pic: "12"
+  },
+  {
+    briefIntro: "iphone",
+    id: "3",
+    location: "MD401",
+    category: "103",
+    time: 1610930897132,
+    description: "",
+  }
 ];
 
 const categories = [
@@ -26,8 +44,29 @@ const categories = [
   },
 ];
 
+const pictures = [
+  {
+    id: "11",
+    DataURL: "picture01",
+    filename: "picture01.png",
+    lastModified: 1602655902693
+  },
+  {
+    id: "12",
+    DataURL: "picture02",
+    filename: "picture02.png",
+    lastModified: 1602605902693
+  }
+];
+
 const getItems = () => items;
 const getCategories = () => categories;
+const getPictures = () => pictures;
+
+const getItemById = (id) => items.find((item) => (item.id.toString() === id));
+const getCategoryById = (id) => categories.find((c) => (c.id.toString() === id));
+const getPictureById = (id) => pictures.find((p) => (p.id.toString() === id));
+
 const pushItem = (data) => {
   const id = uuidv4();
   const response = {
@@ -53,22 +92,47 @@ const updateItem = (data) => {
   throw new Error("Item not found");
 };
 
-const popItem = (itemID) => {
-  const deletedItem = items.splice(
-    items.findIndex((item) => item.id === itemID), 1
+const popPicture = (picID) => {
+  const deletedPicture = pictures.splice(
+    pictures.findIndex((pic) => pic.id === picID), 1
   )[0];
+
+  console.log("deletedPicture:", deletedPicture);
+
+  return deletedPicture;
+};
+
+const popItem = (itemID) => {
+  const index = items.findIndex((item) => item.id === itemID);
+  popPicture(items[index].pic);
+  const deletedItem = items.splice(index, 1)[0];
 
   console.log("deletedItem:", deletedItem);
 
   return deletedItem;
 };
 
+const pushPicture = (data) => {
+  const newPicture = {
+    ...data,
+    id: uuidv4()
+  };
+  pictures.push(newPicture);
+  console.log("pushPicture:", newPicture);
+  return newPicture;
+};
+
 const DB = {
   getItems,
+  getItemById,
   pushItem,
   updateItem,
   popItem,
   getCategories,
+  getCategoryById,
+  getPictures,
+  getPictureById,
+  pushPicture,
 };
 
 export default DB;
