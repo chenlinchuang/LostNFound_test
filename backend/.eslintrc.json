@@ -10,6 +10,7 @@
   },
   "rules": {
     "quotes": ["error", "double"],
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
     "comma-dangle": [
       "error",
       {

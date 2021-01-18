@@ -18,11 +18,11 @@ const ItemSchema = new Schema(
       required: [true, "Category field is required."],
     },
     description: {
-      type: String
+      type: String,
     },
     pic: {
-      type: String
-    }
+      type: String,
+    },
   },
   { timestamps: true }
 );

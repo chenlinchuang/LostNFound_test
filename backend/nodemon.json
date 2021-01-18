@@ -1,6 +1,6 @@
 {
-  "watch": ["server"],
-  "ext": "js,json",
-  "ignore": ["server/**/*.spec.js"],
-  "exec": "babel-node index.js"
+  "watch": ["src"],
+  "ext": "js,json,graphql",
+  "ignore": ["src/**/*.spec.js"],
+  "exec": "babel-node ./src/index.js"
 }
