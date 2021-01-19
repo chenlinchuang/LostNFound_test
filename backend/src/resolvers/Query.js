@@ -21,6 +21,15 @@ const Query = {
 
     return result;
   },
+
+  async pictures(parent, args, { db }) {
+    const allPictures = await db.getPictures();
+    if (!args.query && !args.id) {
+      return allPictures;
+    }
+
+    return allPictures;
+  }
 };
 
 export default Query;

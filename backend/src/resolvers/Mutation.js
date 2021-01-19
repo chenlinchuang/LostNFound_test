@@ -11,6 +11,23 @@ const StringToTime = (timeData) => new Date(
 const Mutation = {
   async createItem(parent, args, { db }) {
     const time = StringToTime(args.time);
+    if (args.pic && !args.lastModified) {
+      throw new Error("Picture must has lasModified field.");
+    }
+    if (args.pic) {
+      const picture = await db.pushPicture({
+        ...args.pic,
+        lastModified: StringToTime(args.lastModified).getTime()
+      });
+      const newItem = await db.pushItem({
+        ...args.data,
+        time: time.getTime(),
+        description: args.data.description ? args.data.description : "",
+        pic: picture.id
+      });
+
+      return newItem;
+    }
     const newItem = await db.pushItem({
       ...args.data,
       time: time.getTime(),
@@ -34,7 +51,8 @@ const Mutation = {
   },
 
   async deleteItem(parent, args, { db }) {
-    const hasItem = (await db.getItems()).findIndex(
+    const allItems = await db.getItems();
+    const hasItem = allItems.findIndex(
       (item) => (item.id.toString() === args.id.toString())
     );
 
@@ -44,8 +62,8 @@ const Mutation = {
 
     const deletedItem = await db.popItem(args.id);
 
-    return deletedItem;
-  }
+    return deletedItem.id;
+  },
 };
 
 export default Mutation;

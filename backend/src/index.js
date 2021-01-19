@@ -3,6 +3,8 @@ import { GraphQLServer, PubSub } from "graphql-yoga";
 import Query from "./resolvers/Query";
 import Mutation from "./resolvers/Mutation";
 import Item from "./resolvers/Item";
+import Picture from "./resolvers/Picture";
+import Category from "./resolvers/Category";
 
 // Testing database
 import db from "./localDB";
@@ -46,6 +48,8 @@ mongoDB.once("open", async () => {
       Query,
       Mutation,
       Item,
+      Picture,
+      Category,
     },
     context: {
       db,
