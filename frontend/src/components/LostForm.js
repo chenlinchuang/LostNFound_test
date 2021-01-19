@@ -11,6 +11,9 @@ import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import SearchBar from "./SearchBar";
+import PostCard from "./PostCard";
+import SimpleMap from "./Map";
+import Detail from "./Detail";
 //	import { connect } from "react-redux"
 
 const useStyles = makeStyles((theme) => ({
@@ -58,6 +61,9 @@ const LostForm = () => {
           </Typography>
         </Toolbar>
       </AppBar>
+      <PostCard />
+      <Detail />
+      <SimpleMap />
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <SearchBar />
