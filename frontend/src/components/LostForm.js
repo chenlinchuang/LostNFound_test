@@ -18,6 +18,10 @@ import BriefIntro from "./Grids/BriefIntro";
 import Location from "./Grids/Location";
 import Time from "./Grids/Time";
 
+// import SearchBar from "./SearchBar";
+import PostCard from "./PostCard";
+import SimpleMap from "./Map";
+import Detail from "./Detail";
 //	import { connect } from "react-redux"
 
 const useStyles = makeStyles((theme) => ({
@@ -74,6 +78,9 @@ const LostForm = () => {
           </Typography>
         </Toolbar>
       </AppBar>
+      <PostCard />
+      <Detail />
+      <SimpleMap />
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center">
