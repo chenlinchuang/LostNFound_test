@@ -39,15 +39,9 @@ const Test = () => {
   return (
     <div>
       <Switch>
-        <Route exact path="/">
-          <Buttons />
-        </Route>
-        <Route path="/lostform">
-          <LostForm />
-        </Route>
-        <Route path="/imgupload">
-          <ImgUpload />
-        </Route>
+        <Route exact path="/" component={Buttons} />
+        <Route path="/lostform" component={LostForm} />
+        <Route path="/imgupload" component={ImgUpload} />
       </Switch>
     </div>
   );

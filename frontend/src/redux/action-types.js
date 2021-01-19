@@ -1,0 +1,3 @@
+export const FILL_BRIEF_INTRO = "FILL_BRIEF_INTRO";
+export const FILL_LOCATION = "FILL_LOCATION";
+export const SELECT_TIME = "SELECT_TIME";

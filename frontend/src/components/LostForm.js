@@ -1,6 +1,9 @@
+/* eslint-disable no-alert */
 import React from "react";
 //  import ReactDom from "react-dom";
 import { makeStyles } from "@material-ui/core/styles";
+import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -10,7 +13,11 @@ import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import SearchBar from "./SearchBar";
+// import SearchBar from "./SearchBar";
+import BriefIntro from "./Grids/BriefIntro";
+import Location from "./Grids/Location";
+import Time from "./Grids/Time";
+
 //	import { connect } from "react-redux"
 
 const useStyles = makeStyles((theme) => ({
@@ -47,8 +54,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const handleSubmit = (history) => {
+  // alert("submit");
+  history.push("/");
+};
+
 const LostForm = () => {
   const classes = useStyles();
+  const history = useHistory();
+  // const dispatch = useDispatch();
+  const title = useSelector((state) => state.location);
+
   return (
     <>
       <AppBar position="absolute" color="default" className={classes.appBar}>
@@ -60,21 +76,11 @@ const LostForm = () => {
       </AppBar>
       <main className={classes.layout}>
         <Paper className={classes.paper}>
-          <SearchBar />
           <Typography component="h1" variant="h4" align="center">
             申報拾獲物
           </Typography>
           <Grid container spacing={3}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                id="firstName"
-                name="firstName"
-                label="First name"
-                fullWidth
-                autoComplete="given-name"
-              />
-            </Grid>
+            <BriefIntro />
             <Grid item xs={12} sm={6}>
               <TextField
                 required
@@ -83,17 +89,10 @@ const LostForm = () => {
                 label="Last name"
                 fullWidth
                 autoComplete="family-name"
+                value={title}
               />
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                required
-                id="location"
-                name="location"
-                label="拾獲地點(必填)"
-                fullWidth
-              />
-            </Grid>
+            <Location />
             <Grid item xs={12}>
               <TextField
                 id="floor"
@@ -102,6 +101,7 @@ const LostForm = () => {
                 fullWidth
               />
             </Grid>
+            <Time />
             <Grid item xs={12} sm={6}>
               <TextField
                 required
@@ -153,10 +153,7 @@ const LostForm = () => {
             <Button
               variant="contained"
               color="primary"
-              onClick={() => {
-                // eslint-disable-next-line no-alert
-                alert("handleNext");
-              }}
+              onClick={() => handleSubmit(history)}
               className={classes.button}
             >
               Finish
