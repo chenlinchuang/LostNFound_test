@@ -1,4 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import ListSubheader from "@material-ui/core/ListSubheader";
+import Switch from "@material-ui/core/Switch";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Grid from "@material-ui/core/Grid";
+import AddIcon from "@material-ui/icons/Add";
 
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -16,42 +21,57 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { Button } from "@material-ui/core";
 import SearchBar from "./SearchBar";
+import MultiSelect from "./Select";
 
 const drawerWidth = 360;
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-  },
-  drawer: {
-    [theme.breakpoints.up("sm")]: {
+const useStyles = makeStyles((theme) => {
+  return {
+    root: {
+      display: "flex",
+    },
+    drawer: {
+      [theme.breakpoints.up("sm")]: {
+        width: drawerWidth,
+        flexShrink: 0,
+      },
+    },
+    appBar: {
+      [theme.breakpoints.up("sm")]: {
+        width: `calc(100% - ${drawerWidth}px)`,
+        marginLeft: drawerWidth,
+      },
+    },
+    menuButton: {
+      marginRight: theme.spacing(2),
+      [theme.breakpoints.up("sm")]: {
+        display: "none",
+      },
+    },
+    subtitle: {
+      fontWeight: 700,
+      fontSize: 17,
+    },
+    filterCondition: {
+      marginLeft: 58,
+      display: "flex",
+    },
+    // necessary for content to be below app bar
+    toolbar: theme.mixins.toolbar,
+    drawerPaper: {
       width: drawerWidth,
-      flexShrink: 0,
     },
-  },
-  appBar: {
-    [theme.breakpoints.up("sm")]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
+    content: {
+      flexGrow: 1,
+      padding: theme.spacing(3),
     },
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.up("sm")]: {
-      display: "none",
-    },
-  },
-  // necessary for content to be below app bar
-  toolbar: theme.mixins.toolbar,
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-  },
-}));
+  };
+});
+
+const categories = ["證件類", "傘類", "水類", "手機類", "衣服類"];
+const places = ["博理館", "宿舍", "普通", "新生", "共同"];
 
 function ResponsiveDrawer() {
   const classes = useStyles();
@@ -70,15 +90,81 @@ function ResponsiveDrawer() {
         <SearchBar />
       </div>
       <Divider />
+
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListItem>
+          <ListItemText>
+            <span className={classes.subtitle}>篩選條件</span>
+          </ListItemText>
+        </ListItem>
+        <ListItem>
+          <span className={classes.filterCondition}>
+            <Grid container>
+              <Grid item xs={10}>
+                <ListItemText>最新</ListItemText>
+              </Grid>
+              <Grid item xs={2}>
+                <FormControlLabel
+                  style={{ paddingLeft: 30 }}
+                  control={<Switch name="yes" />}
+                  label="switch"
+                />
+              </Grid>
+            </Grid>
+          </span>
+        </ListItem>
+        <ListItem>
+          <Grid
+            container
+            className={classes.filterCondition}
+            alignItems="flex-start"
+            direction="column"
+          >
+            <Grid item alignContent="center">
+              <Grid container alignItems="center">
+                <Grid item xs={10} alignContent="center">
+                  <ListItemText>類別</ListItemText>
+                </Grid>
+                <Grid item xs={2}>
+                  <FormControlLabel
+                    style={{ paddingLeft: 30 }}
+                    control={<Switch name="yes" />}
+                    label="switch"
+                  />
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item>
+              <MultiSelect categories={categories} />
+            </Grid>
+          </Grid>
+        </ListItem>
+        <ListItem>
+          <Grid
+            container
+            className={classes.filterCondition}
+            alignItems="flex-start"
+            direction="column"
+          >
+            <Grid item alignContent="center">
+              <Grid container alignItems="center">
+                <Grid item xs={10} alignContent="center">
+                  <ListItemText>地點</ListItemText>
+                </Grid>
+                <Grid item xs={2}>
+                  <FormControlLabel
+                    style={{ paddingLeft: 30 }}
+                    control={<Switch name="yes" />}
+                    label="switch"
+                  />
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item>
+              <MultiSelect categories={places} />
+            </Grid>
+          </Grid>
+        </ListItem>
       </List>
       <Divider />
       <List>

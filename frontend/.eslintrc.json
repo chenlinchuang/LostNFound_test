@@ -24,6 +24,7 @@
     "prettier/prettier": "warn",
     "no-unused-vars":"warn",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/jsx-one-expression-per-line": ["off", { "allow": "single-child" }]
+    "react/jsx-one-expression-per-line": ["off", { "allow": "single-child" }],
+    "react/prop-types": ["warn"]
   }
 }
