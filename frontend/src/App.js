@@ -6,13 +6,14 @@ import React from "react";
   Link
 } from "react-router-dom"; */
 import LostForm from "./components/ImgUpload";
+import ResponsiveDrawer from "./components/SideDrawer";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <LostForm />
+        <ResponsiveDrawer />
       </header>
     </div>
   );
