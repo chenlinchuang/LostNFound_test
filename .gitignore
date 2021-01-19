@@ -8,6 +8,8 @@
 .pnp.js
 
 # testing
+/frontend/.eslintcache
+/backend/.eslintcache
 /coverage
 /backend/.env
 
