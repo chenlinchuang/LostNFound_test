@@ -17,8 +17,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import BriefIntro from "./Grids/BriefIntro";
 import Location from "./Grids/Location";
 import Time from "./Grids/Time";
-
-// import SearchBar from "./SearchBar";
+import Category from "./Grids/Category";
 import PostCard from "./PostCard";
 import SimpleMap from "./Map";
 import Detail from "./Detail";
@@ -58,16 +57,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const handleSubmit = (history) => {
-  // alert("submit");
+const handleSubmit = (history, t, c, l, ti) => {
+  alert(`title:${t}, cat: ${c}, location: ${l}, time:${ti}`);
   history.push("/");
 };
 
 const LostForm = () => {
   const classes = useStyles();
   const history = useHistory();
-  // const dispatch = useDispatch();
-  const title = useSelector((state) => state.location);
+  // Below only for test
+  const title = useSelector((state) => state.briefIntro);
+  const category = useSelector((state) => state.category);
+  const location = useSelector((state) => state.location);
+  const time = useSelector((state) => state.time);
 
   return (
     <>
@@ -88,17 +90,7 @@ const LostForm = () => {
           </Typography>
           <Grid container spacing={3}>
             <BriefIntro />
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                id="lastName"
-                name="lastName"
-                label="Last name"
-                fullWidth
-                autoComplete="family-name"
-                value={title}
-              />
-            </Grid>
+            <Category />
             <Location />
             <Grid item xs={12}>
               <TextField
@@ -160,7 +152,8 @@ const LostForm = () => {
             <Button
               variant="contained"
               color="primary"
-              onClick={() => handleSubmit(history)}
+              onClick={() =>
+                handleSubmit(history, title, category, location, time)}
               className={classes.button}
             >
               Finish

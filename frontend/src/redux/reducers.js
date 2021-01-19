@@ -1,4 +1,9 @@
-import { FILL_BRIEF_INTRO, FILL_LOCATION, SELECT_TIME } from "./action-types";
+import {
+  FILL_BRIEF_INTRO,
+  FILL_LOCATION,
+  SELECT_TIME,
+  SELECT_CATEGORY,
+} from "./action-types";
 
 const initialState = {
   briefIntro: "",
@@ -17,6 +22,8 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, location: action.payload };
     case SELECT_TIME:
       return { ...state, time: action.payload };
+    case SELECT_CATEGORY:
+      return { ...state, category: action.payload };
     default:
       return state;
   }

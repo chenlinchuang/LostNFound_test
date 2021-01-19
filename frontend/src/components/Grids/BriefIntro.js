@@ -13,7 +13,7 @@ export default () => {
         required
         id="briefIntro"
         name="briefIntro"
-        label="簡短描述"
+        label="物品名"
         fullWidth
         onChange={(e) => {
           dispatch(fillTitle(e.target.value));
