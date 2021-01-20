@@ -59,10 +59,7 @@ const Test = () => {
     <div>
       <Switch>
         <Route exact path="/" component={Buttons} />
-        <Route path="/found" component={Found} />
-        <Route path="/imgupload" component={SideDrawer} />
         <Route path="/postindex" component={PostIndex} />
-        <Route path="/similar" component={SimilarItems} />
       </Switch>
     </div>
   );
