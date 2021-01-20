@@ -12,7 +12,8 @@ const timeToString = (time) => {
 
 const Picture = {
   async lastModified(parent) {
-    return timeToString(parent.time);
+    // console.log("lastmodified:0", timeToString(parent.time))
+    return timeToString(parent.lastModified);
   },
   async item(parent, args, { db }) {
     const allItems = await db.getItems();

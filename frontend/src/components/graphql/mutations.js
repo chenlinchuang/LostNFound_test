@@ -3,15 +3,22 @@ import { gql } from "@apollo/client";
 const CREATE_ITEM_MUTATION = gql`
   mutation createItem(
     $data: CreateItemInput!
-    $time: TimeInput!
+    $time: String!
     $pic: PictureInput
-    $lastModified: TimeInput
+    $contact: ContactInput
   ) {
-    createItem(data: $data, time: $time, pic: $pic) {
+    createItem(data: $data, time: $time, pic: $pic, contact: $contact) {
       id
       briefIntro
       location
       description
+      contact {
+        id
+        email
+        facebook
+        phoneNumber
+        other
+      }
       category {
         id
         name
@@ -19,7 +26,6 @@ const CREATE_ITEM_MUTATION = gql`
       pic {
         id
         DataURL
-        item
       }
       time {
         year
