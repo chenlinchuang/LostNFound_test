@@ -4,6 +4,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import LostForm from "./LostForm";
 import SideDrawer from "./SideDrawer";
 import PostIndex from "../mini_components/index";
+import SimilarItems from "./SimilarItems";
 
 const Buttons = () => {
   return (
@@ -44,6 +45,18 @@ const Buttons = () => {
           SideDrawer
         </Button>
       </Link>
+      <Link to="/similar">
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => {
+            // eslint-disable-next-line no-alert
+            alert("handleNext");
+          }}
+        >
+          SimilarItems
+        </Button>
+      </Link>
     </div>
   );
 };
@@ -56,6 +69,7 @@ const Test = () => {
         <Route path="/lostform" component={LostForm} />
         <Route path="/imgupload" component={SideDrawer} />
         <Route path="/postindex" component={PostIndex} />
+        <Route path="/similar" component={SimilarItems} />
       </Switch>
     </div>
   );

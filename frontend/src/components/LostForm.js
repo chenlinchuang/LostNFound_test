@@ -21,6 +21,7 @@ import SimpleMap from "./Map";
 import Detail from "./Detail";
 import Description from "./Grids/Description";
 import ImgUpload from "./ImgUpload";
+import SimilarItems from "./SimilarItems";
 //	import { connect } from "react-redux"
 
 const useStyles = makeStyles((theme) => ({
@@ -83,6 +84,7 @@ const LostForm = () => {
       <PostCard />
       <Detail />
       <SimpleMap />
+      <SimilarItems />
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center">
