@@ -87,15 +87,9 @@ const FoundForm = () => {
             <Button
               variant="contained"
               color="primary"
-<<<<<<< HEAD:frontend/src/components/LostForm.js
-              className={classes.button}
-              onClick={() =>
-                handleSubmit(history, title, category, location, time)
-=======
               onClick={
                 () => handleSubmit(history, title, category, location, time)
                 // eslint-disable-next-line react/jsx-curly-newline
->>>>>>> 7957905963e5b406d9b545e559718e87cac077a6:frontend/src/components/FoundForm.js
               }
             >
               Submit
