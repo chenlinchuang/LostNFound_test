@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import { Switch, Route, Link } from "react-router-dom";
-import LostForm from "./LostForm";
+// import LostForm from "./LostForm";
 import ImgUpload from "./ImgUpload";
 import PostIndex from "../mini_components/index";
 
@@ -53,7 +53,6 @@ const Test = () => {
     <div>
       <Switch>
         <Route exact path="/" component={Buttons} />
-        <Route path="/lostform" component={LostForm} />
         <Route path="/imgupload" component={ImgUpload} />
         <Route path="/postindex" component={PostIndex} />
       </Switch>

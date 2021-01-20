@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-curly-newline */
 /* eslint-disable no-alert */
 import React from "react";
 //  import ReactDom from "react-dom";
@@ -152,10 +153,10 @@ const LostForm = () => {
             <Button
               variant="contained"
               color="primary"
+              className={classes.button}
               onClick={() =>
                 handleSubmit(history, title, category, location, time)
               }
-              className={classes.button}
             >
               Finish
             </Button>

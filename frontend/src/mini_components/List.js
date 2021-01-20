@@ -39,7 +39,7 @@ export default function SimpleList(props) {
   const { time, location } = props;
   return (
     <div className={classes.root}>
-      <List component="nav" aria-label="main info">
+      <List direction="row" component="nav" aria-label="main info">
         <ListItem>
           <ListItemAvatar>
             <Avatar>
@@ -65,7 +65,6 @@ export default function SimpleList(props) {
           <ListItemText primary={`${time.hour}:${time.minute}`} />
         </ListItem>
       </List>
-      <Divider />
     </div>
   );
 }
