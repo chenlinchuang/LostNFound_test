@@ -6,6 +6,8 @@ import { BrowserRouter as Router } from "react-router-dom";
   Route,
   Link
 } from "react-router-dom"; */
+import LostForm from "./components/ImgUpload";
+import ResponsiveDrawer from "./components/SideDrawer";
 import Test from "./components/test";
 import "./App.css";
 

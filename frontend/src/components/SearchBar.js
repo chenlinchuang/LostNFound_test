@@ -11,10 +11,13 @@ const useStyles = makeStyles((theme) => ({
     padding: "2px 4px",
     display: "flex",
     alignItems: "center",
-    width: 400,
+    width: 328,
+    borderRadius: 25,
+    backgroundColor: "#F0F2F5",
   },
   input: {
     marginLeft: theme.spacing(1),
+    marginTop: "2px",
     flex: 1,
   },
   iconButton: {
@@ -31,10 +34,6 @@ export default function SearchBar() {
 
   return (
     <Paper component="form" className={classes.root}>
-      <IconButton className={classes.iconButton} aria-label="menu">
-        <MenuIcon />
-      </IconButton>
-      <InputBase className={classes.input} placeholder="Search" />
       <IconButton
         type="submit"
         className={classes.iconButton}
@@ -42,6 +41,7 @@ export default function SearchBar() {
       >
         <SearchIcon />
       </IconButton>
+      <InputBase className={classes.input} placeholder="Search" />
     </Paper>
   );
 }
