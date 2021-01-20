@@ -5,23 +5,18 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
-import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
 // import SearchBar from "./SearchBar";
 import BriefIntro from "./Grids/BriefIntro";
 import Location from "./Grids/Location";
 import Time from "./Grids/Time";
 import Category from "./Grids/Category";
-import PostCard from "./PostCard";
-import SimpleMap from "./Map";
-import Detail from "./Detail";
+import Description from "./Grids/Description";
+import ImgUpload from "./ImgUpload";
+import Contact from "./Grids/Contact";
 //	import { connect } from "react-redux"
 
 const useStyles = makeStyles((theme) => ({
@@ -63,7 +58,7 @@ const handleSubmit = (history, t, c, l, ti) => {
   history.push("/");
 };
 
-const LostForm = () => {
+const FoundForm = () => {
   const classes = useStyles();
   const history = useHistory();
   // Below only for test
@@ -74,16 +69,6 @@ const LostForm = () => {
 
   return (
     <>
-      <AppBar position="absolute" color="default" className={classes.appBar}>
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            Website name
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <PostCard />
-      <Detail />
-      <SimpleMap />
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center">
@@ -93,72 +78,27 @@ const LostForm = () => {
             <BriefIntro />
             <Category />
             <Location />
-            <Grid item xs={12}>
-              <TextField
-                id="floor"
-                name="floor"
-                label="拾獲樓層(用select)"
-                fullWidth
-              />
-            </Grid>
+            <Contact />
             <Time />
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                id="city"
-                name="city"
-                label="City"
-                fullWidth
-                autoComplete="shipping address-level2"
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                id="state"
-                name="state"
-                label="State/Province/Region"
-                fullWidth
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                id="zip"
-                name="zip"
-                label="Zip / Postal code"
-                fullWidth
-                autoComplete="shipping postal-code"
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                id="country"
-                name="country"
-                label="Country"
-                fullWidth
-                autoComplete="shipping country"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={
-                  <Checkbox color="secondary" name="saveAddress" value="yes" />
-                }
-                label="打勾勾"
-              />
-            </Grid>
+            <Description />
+            <ImgUpload />
           </Grid>
           <div className={classes.buttons}>
             <Button
               variant="contained"
               color="primary"
+<<<<<<< HEAD:frontend/src/components/LostForm.js
               className={classes.button}
               onClick={() =>
                 handleSubmit(history, title, category, location, time)
+=======
+              onClick={
+                () => handleSubmit(history, title, category, location, time)
+                // eslint-disable-next-line react/jsx-curly-newline
+>>>>>>> 7957905963e5b406d9b545e559718e87cac077a6:frontend/src/components/FoundForm.js
               }
             >
-              Finish
+              Submit
             </Button>
           </div>
         </Paper>
@@ -167,5 +107,5 @@ const LostForm = () => {
   );
 };
 
-export default LostForm;
+export default FoundForm;
 // reference https://github.com/mui-org/material-ui/blob/master/docs/src/pages/getting-started/templates/checkout/Checkout.js

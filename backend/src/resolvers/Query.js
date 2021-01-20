@@ -29,6 +29,15 @@ const Query = {
     }
 
     return allPictures;
+  },
+
+  async categories(parent, args, { db }) {
+    const allCategories = await db.getCategories();
+    if (!args.query && !args.id) {
+      return allCategories;
+    }
+
+    return allCategories;
   }
 };
 

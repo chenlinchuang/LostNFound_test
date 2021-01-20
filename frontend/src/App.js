@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 /* import {
@@ -8,6 +9,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 } from "react-router-dom"; */
 import LostForm from "./components/ImgUpload";
 import ResponsiveDrawer from "./components/SideDrawer";
+import MultiSelect from "./components/ConditionSelect";
 import Test from "./components/test";
 import "./App.css";
 
@@ -20,6 +22,7 @@ function App() {
         </header>
       </div>
     </Router>
+    // <ResponsiveDrawer />
   );
 }
 

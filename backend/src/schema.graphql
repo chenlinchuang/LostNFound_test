@@ -1,17 +1,20 @@
 type Query {
   items(query: String, id: ID): [Item!]!
   pictures(query: String, id: ID): [Picture!]!
+  categories(query: String, id:ID): [Category!]!
 }
 
 type Mutation {
-  createItem(data: CreateItemInput!, time: TimeInput!, pic: PictureInput, lastModified: TimeInput): Item!
+  createItem(data: CreateItemInput!, time: TimeInput!, pic: PictureInput, contact: ContactInput): Item!
   updateItem(data: UpdateItemInput!, time: TimeInput): Item!
   deleteItem(id: ID!): ID!
+  createCategory(name: String!): Category!
 }
 
 input CreateItemInput {
   briefIntro: String!
   location: String!
+  isMatch: ItemState!
   category: ID!
   description: String
 }
@@ -28,6 +31,14 @@ input TimeInput {
 input PictureInput {
   DataURL: String!
   filename: String!
+  lastModified: String
+}
+
+input ContactInput {
+  email: String
+  facebook: String
+  phoneNumber: String
+  other: String
 }
 
 input UpdateItemInput {
@@ -47,6 +58,8 @@ type Item {
   category: Category!
   description: String!
   pic: Picture
+  contact: Contact
+  isMatch: ItemState!
 }
 
 type Date {
@@ -70,4 +83,19 @@ type Category {
   id: ID!
   name: String!
   items: [Item]!
+}
+
+type Contact {
+  id: ID!
+  item: Item!
+  email: String
+  facebook: String
+  phoneNumber: String
+  other: String
+}
+
+enum ItemState {
+  NEED_TO_FIND
+  IS_FOUND
+  IS_MATCH
 }
