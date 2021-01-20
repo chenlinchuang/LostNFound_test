@@ -1,11 +1,19 @@
-/* eslint-disable no-alert */
-import React from "react";
-//  import ReactDom from "react-dom";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useLazyQuery } from "@apollo/client";
+
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
-import PostCard from "./PostCard";
-//	import { connect } from "react-redux"
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+
+import PostCard from "../mini_components/PostPreview";
+
+import IDCardImg from "../static/123.jpg";
+import NoImageIcon from "../static/456.jpg";
+import NoDataImg from "../static/noData.png";
+import { ITEMS_QUERY } from "./graphql/index";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -33,8 +41,38 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SimilarItems = () => {
+function SimilarItems() {
   const classes = useStyles();
+  const title = useSelector((state) => state.briefIntro);
+  const toFindSimilar = useSelector((state) => state.toFindSimilar);
+  const [findSimilar, { loading, data, error }] = useLazyQuery(ITEMS_QUERY);
+
+  useEffect(() => {
+    if (toFindSimilar) {
+      findSimilar({ variables: { query: title } });
+    }
+  }, [findSimilar, title, toFindSimilar]);
+
+  useEffect(() => console.log("dd:", data), [data]);
+
+  const similarItems =
+    loading || !data || data.items.length === 0 ? (
+      <ListItem>
+        <img style={{ margin: "auto" }} src={NoDataImg} alt="No Data" />
+      </ListItem>
+    ) : (
+      data.items.map((item) => (
+        <ListItem>
+          <PostCard
+            briefInfo={item.briefIntro}
+            image={item.pic ? item.pic.DataURL : NoImageIcon}
+            time={item.time}
+            location={item.location}
+          />
+        </ListItem>
+      ))
+    );
+
   return (
     <>
       <main className={classes.layout}>
@@ -42,13 +80,11 @@ const SimilarItems = () => {
           <Typography component="h1" variant="h4" align="center">
             相似結果
           </Typography>
-          <PostCard />
-          <PostCard />
-          <PostCard />
+          <List>{similarItems}</List>
         </Paper>
       </main>
     </>
   );
-};
+}
 
 export default SimilarItems;

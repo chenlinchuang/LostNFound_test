@@ -50,14 +50,14 @@ export default function PostPreview(props) {
   return (
     <Paper className={classes.paper} elevation={3}>
       <Grid container spacing={2}>
-        <Grid item md={7} sm={7} container>
+        <Grid item md={4} sm={4} container>
           <ButtonBase className={classes.image}>
             <Grid item>
               <img className={classes.img} alt="complex" src={image} />
             </Grid>
           </ButtonBase>
         </Grid>
-        <Grid item md={5} sm={5} container spacing={4}>
+        <Grid item md={8} sm={8} container spacing={4}>
           <Grid item xs container direction="column" spacing={2}>
             <Grid item>
               <Typography variant="h4">{briefInfo}</Typography>
