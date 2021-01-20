@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-curly-newline */
 /* eslint-disable no-alert */
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
