@@ -4,7 +4,8 @@ import { Switch, Route, Link } from "react-router-dom";
 import Found from "../containers/Found";
 import SideDrawer from "./SideDrawer";
 import PostIndex from "../mini_components/index";
-import SimilarItems from "./SimilarItems";
+import Lost from "../containers/Lost";
+import LostForm from "./LostForm";
 
 const Buttons = () => {
   return (
@@ -38,16 +39,9 @@ const Buttons = () => {
           SideDrawer
         </Button>
       </Link>
-      <Link to="/similar">
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => {
-            // eslint-disable-next-line no-alert
-            alert("handleNext");
-          }}
-        >
-          SimilarItems
+      <Link to="/lost">
+        <Button variant="contained" color="primary">
+          我要找東西
         </Button>
       </Link>
     </div>
@@ -62,7 +56,9 @@ const Test = () => {
         <Route path="/found" component={Found} />
         <Route path="/imgupload" component={SideDrawer} />
         <Route path="/postindex" component={PostIndex} />
-        <Route path="/similar" component={SimilarItems} />
+        <Route exact path="/lost" component={Lost} />
+        <Route path="/lost/form" component={LostForm} />
+        <Route path="/lost/search" component={SideDrawer} />
       </Switch>
     </div>
   );

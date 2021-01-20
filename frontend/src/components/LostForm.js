@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-curly-newline */
 /* eslint-disable no-alert */
 import React from "react";
 //  import ReactDom from "react-dom";
@@ -72,14 +71,14 @@ const FoundForm = () => {
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center">
-            申報拾獲物
+            登記遺失物
           </Typography>
           <Grid container spacing={3}>
             <BriefIntro />
             <Category />
-            <Location />
+            <Location isLost />
             <Contact />
-            <Time />
+            <Time isLost />
             <Description />
             <ImgUpload />
           </Grid>
@@ -91,6 +90,7 @@ const FoundForm = () => {
                 () => handleSubmit(history, title, category, location, time)
                 // eslint-disable-next-line react/jsx-curly-newline
               }
+              className={classes.button}
             >
               Submit
             </Button>

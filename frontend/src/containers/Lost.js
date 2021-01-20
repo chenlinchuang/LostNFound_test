@@ -1,13 +1,13 @@
 /* eslint-disable no-alert */
 import React from "react";
 //  import ReactDom from "react-dom";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import { IconButton } from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import FoundForm from "../components/FoundForm";
-import SimilarItems from "../components/SimilarItems";
-// import SearchBar from "./SearchBar";
+import Button from "@material-ui/core/Button";
+import CreateIcon from "@material-ui/icons/Create";
+import SearchBar from "../components/SearchBar";
 //	import { connect } from "react-redux"
 
 const FoundPage = () => {
@@ -24,12 +24,20 @@ const FoundPage = () => {
           <ArrowBackIcon color="secondary" style={{ fontSize: 40 }} />
         </IconButton>
       </Grid>
-      <Grid container alignItems="flex-start" spacing={1} justify="center">
-        <Grid item xs={6}>
-          <SimilarItems />
+      <Grid container justify="center" spacing={2}>
+        <Grid item xs={12}>
+          <SearchBar />
         </Grid>
         <Grid item xs={6}>
-          <FoundForm />
+          <Link to="/lost/form">
+            <Button
+              variant="contained"
+              color="default"
+              startIcon={<CreateIcon />}
+            >
+              登記遺失
+            </Button>
+          </Link>
         </Grid>
       </Grid>
     </>
@@ -37,4 +45,3 @@ const FoundPage = () => {
 };
 
 export default FoundPage;
-// reference https://github.com/mui-org/material-ui/blob/master/docs/src/pages/getting-started/templates/checkout/Checkout.js

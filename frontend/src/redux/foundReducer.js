@@ -18,7 +18,7 @@ const initialState = {
   pic: undefined,
 };
 
-const rootReducer = (state = initialState, action) => {
+const foundReducer = (state = initialState, action) => {
   switch (action.type) {
     case FILL_BRIEF_INTRO:
       return { ...state, briefIntro: action.payload };
@@ -39,4 +39,4 @@ const rootReducer = (state = initialState, action) => {
   }
 };
 
-export default rootReducer;
+export default foundReducer;
