@@ -2,7 +2,7 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import { Switch, Route, Link } from "react-router-dom";
 import LostForm from "./LostForm";
-import ImgUpload from "./ImgUpload";
+import SideDrawer from "./SideDrawer";
 import PostIndex from "../mini_components/index";
 
 const Buttons = () => {
@@ -41,7 +41,7 @@ const Buttons = () => {
             alert("handleNext");
           }}
         >
-          ImgUpload
+          SideDrawer
         </Button>
       </Link>
     </div>
@@ -54,7 +54,7 @@ const Test = () => {
       <Switch>
         <Route exact path="/" component={Buttons} />
         <Route path="/lostform" component={LostForm} />
-        <Route path="/imgupload" component={ImgUpload} />
+        <Route path="/imgupload" component={SideDrawer} />
         <Route path="/postindex" component={PostIndex} />
       </Switch>
     </div>

@@ -11,8 +11,6 @@ import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
 // import SearchBar from "./SearchBar";
 import BriefIntro from "./Grids/BriefIntro";
 import Location from "./Grids/Location";
@@ -21,6 +19,8 @@ import Category from "./Grids/Category";
 import PostCard from "./PostCard";
 import SimpleMap from "./Map";
 import Detail from "./Detail";
+import Description from "./Grids/Description";
+import ImgUpload from "./ImgUpload";
 //	import { connect } from "react-redux"
 
 const useStyles = makeStyles((theme) => ({
@@ -101,52 +101,8 @@ const LostForm = () => {
               />
             </Grid>
             <Time />
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                id="city"
-                name="city"
-                label="City"
-                fullWidth
-                autoComplete="shipping address-level2"
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                id="state"
-                name="state"
-                label="State/Province/Region"
-                fullWidth
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                id="zip"
-                name="zip"
-                label="Zip / Postal code"
-                fullWidth
-                autoComplete="shipping postal-code"
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                id="country"
-                name="country"
-                label="Country"
-                fullWidth
-                autoComplete="shipping country"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={
-                  <Checkbox color="secondary" name="saveAddress" value="yes" />
-                }
-                label="打勾勾"
-              />
-            </Grid>
+            <Description />
+            <ImgUpload />
           </Grid>
           <div className={classes.buttons}>
             <Button
@@ -158,7 +114,7 @@ const LostForm = () => {
               }
               className={classes.button}
             >
-              Finish
+              Submit
             </Button>
           </div>
         </Paper>

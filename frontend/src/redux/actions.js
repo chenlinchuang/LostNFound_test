@@ -3,6 +3,7 @@ import {
   FILL_LOCATION,
   SELECT_TIME,
   SELECT_CATEGORY,
+  FILL_DESCRIPTION,
 } from "./action-types";
 
 export const fillTitle = (payload) => {
@@ -19,4 +20,8 @@ export const selectTime = (payload) => {
 
 export const selectCategory = (payload) => {
   return { type: SELECT_CATEGORY, payload };
+};
+
+export const fillDescription = (payload) => {
+  return { type: FILL_DESCRIPTION, payload };
 };
