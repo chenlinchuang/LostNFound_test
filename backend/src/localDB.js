@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
+import imageData from "./imageData";
 
 const items = [
   {
@@ -56,15 +57,17 @@ const categories = [
 const pictures = [
   {
     id: "11",
-    DataURL: "picture01",
+    DataURL: imageData.studentIDCard,
     filename: "picture01.png",
-    lastModified: 1602655902693
+    lastModified: 1602655902693,
+    type: "image/jpeg",
   },
   {
     id: "12",
-    DataURL: "picture02",
+    DataURL: imageData.waterBottle,
     filename: "picture02.png",
-    lastModified: 1602605902693
+    lastModified: 1602605902693,
+    type: "image/jpeg",
   }
 ];
 

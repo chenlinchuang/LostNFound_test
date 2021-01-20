@@ -32,6 +32,7 @@ input PictureInput {
   DataURL: String!
   filename: String!
   lastModified: String!
+  type: String!
 }
 
 input ContactInput {
@@ -77,6 +78,7 @@ type Picture {
   filename: String!
   item: Item!
   lastModified: Date!
+  type: String!
 }
 
 type Category {
