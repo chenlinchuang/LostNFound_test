@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import { Switch, Route, Link } from "react-router-dom";
-import LostForm from "./LostForm";
+import Found from "../containers/Found";
 import SideDrawer from "./SideDrawer";
 import PostIndex from "../mini_components/index";
 import SimilarItems from "./SimilarItems";
@@ -21,16 +21,9 @@ const Buttons = () => {
           PostIndex
         </Button>
       </Link>
-      <Link to="/lostform">
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => {
-            // eslint-disable-next-line no-alert
-            alert("handleNext");
-          }}
-        >
-          LostForm
+      <Link to="/found">
+        <Button variant="contained" color="primary">
+          我撿到東西
         </Button>
       </Link>
       <Link to="/imgupload">
@@ -66,7 +59,7 @@ const Test = () => {
     <div>
       <Switch>
         <Route exact path="/" component={Buttons} />
-        <Route path="/lostform" component={LostForm} />
+        <Route path="/found" component={Found} />
         <Route path="/imgupload" component={SideDrawer} />
         <Route path="/postindex" component={PostIndex} />
         <Route path="/similar" component={SimilarItems} />

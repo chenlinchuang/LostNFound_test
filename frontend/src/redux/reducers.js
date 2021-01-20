@@ -4,6 +4,8 @@ import {
   SELECT_TIME,
   SELECT_CATEGORY,
   FILL_DESCRIPTION,
+  FILL_CONTACT,
+  SELECT_PICTURE,
 } from "./action-types";
 
 const initialState = {
@@ -12,6 +14,7 @@ const initialState = {
   location: "",
   catagory: "",
   description: "",
+  contact: "",
   pic: undefined,
 };
 
@@ -27,6 +30,10 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, category: action.payload };
     case FILL_DESCRIPTION:
       return { ...state, description: action.payload };
+    case FILL_CONTACT:
+      return { ...state, contact: action.payload };
+    case SELECT_PICTURE:
+      return { ...state, pic: action.payload };
     default:
       return state;
   }
