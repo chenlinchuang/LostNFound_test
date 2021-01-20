@@ -40,6 +40,8 @@ export const selectPicture = (payload) => {
 
 export const findSimilarItem = (payload) => {
   return { type: FIND_SIMILAR_ITEM, payload };
+};
+
 export const clearAll = () => {
   return { type: CLEAR_ALL };
 };

@@ -76,19 +76,13 @@ function FoundForm() {
   );
 
   const [snackbarOpen, setSnackbarOpen] = useState(false);
-<<<<<<< HEAD
   const [picDataURL, setPicDataURL] = useState("");
 
-  const handleSubmit = () => {
-    if (title === "" || location === "" || category === "") {
-      alert("error");
-=======
   const dispatch = useDispatch();
 
   const handleSubmit = () => {
-    if (!title || !location || !category) {
+    if (title === "" || location === "" || category === "") {
       setSnackbarOpen(true);
->>>>>>> bdbfdf95cd0ac6b5d8d4b6dba03c6d2276103a5b
       return;
     }
     const createItemInput = {
