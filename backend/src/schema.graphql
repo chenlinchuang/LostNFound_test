@@ -1,6 +1,7 @@
 type Query {
   items(query: String, id: ID): [Item!]!
   pictures(query: String, id: ID): [Picture!]!
+  categories(query: String, id:ID): [Category!]!
 }
 
 type Mutation {

@@ -1,3 +1,5 @@
+import { CATEGORIES_QUERY } from "../../../frontend/src/components/graphql/queries";
+
 const Query = {
   async items(parent, args, { db }) {
     const allItems = await db.getItems();
@@ -29,6 +31,15 @@ const Query = {
     }
 
     return allPictures;
+  },
+
+  async categories(parent, args, { db }) {
+    const allCategories = await db.getCategories();
+    if (!args.query && !args.id) {
+      return allCategories;
+    }
+
+    return allCategories;
   }
 };
 

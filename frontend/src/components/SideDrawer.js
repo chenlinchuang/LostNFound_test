@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import ListSubheader from "@material-ui/core/ListSubheader";
 import Switch from "@material-ui/core/Switch";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Grid from "@material-ui/core/Grid";
-import AddIcon from "@material-ui/icons/Add";
-
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Divider from "@material-ui/core/Divider";
@@ -21,9 +18,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { Button } from "@material-ui/core";
 import SearchBar from "./SearchBar";
-import MultiSelect from "./Select";
+import MultiSelect from "./ConditionSelect";
 
 const drawerWidth = 360;
 
@@ -50,12 +46,16 @@ const useStyles = makeStyles((theme) => {
         display: "none",
       },
     },
+    title: {
+      fontWeight: 800,
+      fontSize: 24,
+    },
     subtitle: {
       fontWeight: 700,
       fontSize: 17,
     },
     filterCondition: {
-      marginLeft: 58,
+      marginLeft: 40,
       display: "flex",
     },
     // necessary for content to be below app bar
@@ -76,7 +76,7 @@ const places = ["博理館", "宿舍", "普通", "新生", "共同"];
 function ResponsiveDrawer() {
   const classes = useStyles();
   const theme = useTheme();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -87,6 +87,9 @@ function ResponsiveDrawer() {
       <div className={classes.toolbar} />
       <Divider />
       <div style={{ padding: "9px 12px" }}>
+        <span className={classes.title}>搜尋結果</span>
+      </div>
+      <div style={{ padding: "9px 12px", paddingBottom: 18 }}>
         <SearchBar />
       </div>
       <Divider />
@@ -135,7 +138,7 @@ function ResponsiveDrawer() {
               </Grid>
             </Grid>
             <Grid item>
-              <MultiSelect categories={categories} />
+              <MultiSelect allOptions={categories} />
             </Grid>
           </Grid>
         </ListItem>
@@ -161,7 +164,7 @@ function ResponsiveDrawer() {
               </Grid>
             </Grid>
             <Grid item>
-              <MultiSelect categories={places} />
+              <MultiSelect allOptions={places} />
             </Grid>
           </Grid>
         </ListItem>

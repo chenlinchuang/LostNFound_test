@@ -152,8 +152,9 @@ const LostForm = () => {
             <Button
               variant="contained"
               color="primary"
-              onClick={() =>
-                handleSubmit(history, title, category, location, time)
+              onClick={
+                () => handleSubmit(history, title, category, location, time)
+                // eslint-disable-next-line react/jsx-curly-newline
               }
               className={classes.button}
             >
