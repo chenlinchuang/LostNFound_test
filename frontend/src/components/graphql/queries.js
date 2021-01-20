@@ -10,12 +10,16 @@ const CATEGORIES_QUERY = gql`
 `;
 
 const ITEMS_QUERY = gql`
-  query getItems {
-    items {
+  query getItems($query: String) {
+    items(query: $query) {
       id
       briefIntro
       location
       description
+      contact {
+        id
+        other
+      }
       category {
         id
         name
@@ -23,7 +27,6 @@ const ITEMS_QUERY = gql`
       pic {
         id
         DataURL
-        item
       }
       time {
         year

@@ -69,16 +69,19 @@ function FoundForm() {
   const time = useSelector((state) => state.time);
   const description = useSelector((state) => state.description);
   const contact = useSelector((state) => state.contact);
+  const pic = useSelector((state) => state.pic);
 
   const [createItem, { loading, data, error }] = useMutation(
     CREATE_ITEM_MUTATION
   );
 
   const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [picDataURL, setPicDataURL] = useState("");
+
   const dispatch = useDispatch();
 
   const handleSubmit = () => {
-    if (!title || !location || !category) {
+    if (title === "" || location === "" || category === "") {
       setSnackbarOpen(true);
       return;
     }
@@ -89,17 +92,31 @@ function FoundForm() {
       description,
       isMatch: "IS_FOUND",
     };
-    const ContactInput = {
-      other: contact,
+    let variables = {
+      data: createItemInput,
+      time: time.valueOf().toString(),
     };
+    if (contact && contact.name) {
+      variables = {
+        ...variables,
+        contact: { other: contact }
+      };
+    }
+    if (pic && pic.length > 0) {
+      const PicInput = {
+        DataURL: picDataURL,
+        filename: pic[0].name,
+        lastModified: pic[0].lastModified.toString(),
+        type: pic[0].type,
+      };
+
+      variables = {
+        ...variables,
+        pic: PicInput,
+      };
+    }
     setSnackbarOpen(true);
-    createItem({
-      variables: {
-        data: createItemInput,
-        contact: ContactInput,
-        time: time.valueOf().toString(),
-      },
-    });
+    createItem({ variables });
     dispatch(clearAll());
     history.push("/");
   };
@@ -110,7 +127,21 @@ function FoundForm() {
     }
   }, [loading, data]);
 
-  // useEffect(() => console.log("time", time), [time]);
+  useEffect(() => {
+    if (pic && pic.length > 0) {
+      console.log("pic:", pic);
+      const picFileReader = new FileReader();
+      picFileReader.onload = () => {
+        console.log("end:", Date.now());
+        console.log(picFileReader.result);
+        setPicDataURL(picFileReader.result);
+      };
+      picFileReader.onloadstart = () => {
+        console.log("start Loading:", Date.now());
+      };
+      picFileReader.readAsDataURL(pic[0]);
+    }
+  }, [pic]);
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {

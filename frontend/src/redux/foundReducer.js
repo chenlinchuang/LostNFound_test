@@ -6,6 +6,7 @@ import {
   FILL_DESCRIPTION,
   FILL_CONTACT,
   SELECT_PICTURE,
+  FIND_SIMILAR_ITEM,
   CLEAR_ALL,
 } from "./action-types";
 
@@ -17,6 +18,7 @@ const initialState = {
   description: "",
   contact: "",
   pic: undefined,
+  toFindSimilar: false,
 };
 
 const foundReducer = (state = initialState, action) => {
@@ -35,6 +37,8 @@ const foundReducer = (state = initialState, action) => {
       return { ...state, contact: action.payload };
     case SELECT_PICTURE:
       return { ...state, pic: action.payload };
+    case FIND_SIMILAR_ITEM:
+      return { ...state, toFindSimilar: action.payload };
     case CLEAR_ALL:
       return initialState;
     default:

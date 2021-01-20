@@ -25,7 +25,7 @@ const FoundPage = () => {
         </IconButton>
       </Grid>
       <Grid container alignItems="flex-start" spacing={1} justify="center">
-        <Grid item xs={6}>
+        <Grid item xs={6} spacing={5}>
           <SimilarItems />
         </Grid>
         <Grid item xs={6}>
