@@ -22,6 +22,10 @@ const Item = {
   async pic(parent, args, { db }) {
     const result = await db.getPictureById(parent.pic);
     return result;
+  },
+  async contact(parent, args, { db }) {
+    const result = await db.getContactById(parent.contact);
+    return result;
   }
 };
 

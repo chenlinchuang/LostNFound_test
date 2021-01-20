@@ -1,5 +1,3 @@
-import { CATEGORIES_QUERY } from "../../../frontend/src/components/graphql/queries";
-
 const Query = {
   async items(parent, args, { db }) {
     const allItems = await db.getItems();

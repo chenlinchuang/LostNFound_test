@@ -14,27 +14,26 @@ const Mutation = {
     if (args.pic && !args.lastModified) {
       throw new Error("Picture must has lasModified field.");
     }
-    if (args.pic) {
-      const picture = await db.pushPicture({
-        ...args.pic,
-        lastModified: StringToTime(args.lastModified).getTime()
-      });
-      const newItem = await db.pushItem({
-        ...args.data,
-        time: time.getTime(),
-        description: args.data.description ? args.data.description : "",
-        pic: picture.id
-      });
 
-      return newItem;
-    }
-    const newItem = await db.pushItem({
+    const newItem = {
       ...args.data,
       time: time.getTime(),
-      description: args.data.description ? args.data.description : ""
-    });
+      description: args.data.description ? args.data.description : "",
+    };
 
-    return newItem;
+    if (args.pic) {
+      const picture = await db.pushPicture(args.pic);
+      newItem.pic = picture.id;
+    }
+
+    if (args.contact) {
+      const contact = await db.pushContact(args.contact);
+      newItem.contact = contact.id;
+    }
+
+    const result = await db.pushItem(newItem);
+
+    return result;
   },
   async updateItem(parent, args, { db }) {
     if (args.time) {
@@ -64,6 +63,12 @@ const Mutation = {
 
     return deletedItem.id;
   },
+
+  async createCategory(parent, args, { db }) {
+    const newCategory = db.pushCategory({ name: args.name });
+
+    return newCategory;
+  }
 };
 
 export default Mutation;
