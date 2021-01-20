@@ -10,19 +10,24 @@ const StringToTime = (timeData) => new Date(
 
 const Mutation = {
   async createItem(parent, args, { db }) {
-    const time = StringToTime(args.time);
-    if (args.pic && !args.lastModified) {
-      throw new Error("Picture must has lasModified field.");
-    }
+    // const time = StringToTime(args.time);
+    const time = parseInt(args.time, 10);
+    // if (args.pic && !args.lastModified) {
+    //   throw new Error("Picture must has lasModified field.");
+    // }
 
     const newItem = {
       ...args.data,
-      time: time.getTime(),
+      time,
       description: args.data.description ? args.data.description : "",
     };
 
     if (args.pic) {
-      const picture = await db.pushPicture(args.pic);
+      const newPicture = {
+        ...args.pic,
+        lastModified: parseInt(args.pic.lastModified, 10),
+      };
+      const picture = await db.pushPicture(newPicture);
       newItem.pic = picture.id;
     }
 

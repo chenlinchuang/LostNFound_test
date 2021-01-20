@@ -5,7 +5,7 @@ type Query {
 }
 
 type Mutation {
-  createItem(data: CreateItemInput!, time: TimeInput!, pic: PictureInput, contact: ContactInput): Item!
+  createItem(data: CreateItemInput!, time: String!, pic: PictureInput, contact: ContactInput): Item!
   updateItem(data: UpdateItemInput!, time: TimeInput): Item!
   deleteItem(id: ID!): ID!
   createCategory(name: String!): Category!
@@ -31,7 +31,7 @@ input TimeInput {
 input PictureInput {
   DataURL: String!
   filename: String!
-  lastModified: String
+  lastModified: String!
 }
 
 input ContactInput {

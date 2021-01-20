@@ -47,6 +47,10 @@ const categories = [
     name: "bottles",
     id: "103",
   },
+  {
+    name: "others",
+    id: "104",
+  },
 ];
 
 const pictures = [

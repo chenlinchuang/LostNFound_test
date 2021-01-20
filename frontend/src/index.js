@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import { Provider } from "react-redux";
 import {
-  split,
   HttpLink,
   ApolloClient,
   InMemoryCache,
