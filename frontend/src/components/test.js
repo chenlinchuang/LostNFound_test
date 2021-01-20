@@ -54,12 +54,9 @@ const Test = () => {
       <Switch>
         <Route exact path="/" component={Buttons} />
         <Route path="/postindex" component={PostIndex} />
-<<<<<<< HEAD
         <Route exact path="/lost" component={Lost} />
         <Route path="/lost/form" component={LostForm} />
         <Route path="/lost/search" component={SideDrawer} />
-=======
->>>>>>> post
       </Switch>
     </div>
   );
