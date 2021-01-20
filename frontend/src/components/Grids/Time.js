@@ -10,7 +10,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { selectTime } from "../../redux/actions";
 
-export default function MaterialUIPickers() {
+export default (isLost) => {
   const dispatch = useDispatch();
   const time = useSelector((state) => state.time);
 
@@ -20,7 +20,7 @@ export default function MaterialUIPickers() {
         <KeyboardDatePicker
           margin="normal"
           id="date-picker-dialog"
-          label="拾獲日期"
+          label={isLost ? "遺失日期" : "拾獲日期"}
           format="yyyy/MM/DD"
           value={time}
           onChange={(date) => {
@@ -33,7 +33,7 @@ export default function MaterialUIPickers() {
         <KeyboardTimePicker
           margin="normal"
           id="time-picker"
-          label="拾獲時間"
+          label={isLost ? "遺失時間" : "拾獲時間"}
           value={time}
           onChange={(date) => {
             dispatch(selectTime(date));
@@ -45,4 +45,4 @@ export default function MaterialUIPickers() {
       </Grid>
     </MuiPickersUtilsProvider>
   );
-}
+};

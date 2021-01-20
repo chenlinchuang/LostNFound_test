@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
@@ -13,7 +12,10 @@ import Divider from "@material-ui/core/Divider";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import TodayIcon from "@material-ui/icons/Today";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
+import NotListedLocationIcon from "@material-ui/icons/NotListedLocation";
+import ContactPhoneIcon from "@material-ui/icons/ContactPhone";
 import PropTypes from "prop-types";
+import CategoryIcon from "@material-ui/icons/Category";
 // import InboxIcon from '@material-ui/icons/Inbox';
 // import DraftsIcon from '@material-ui/icons/Drafts';
 
@@ -37,33 +39,39 @@ function ListItemLink(props) {
 */
 export default function SimpleList(props) {
   const classes = useStyles();
-  const { time, location } = props;
+  const { contact, itemState, category } = props;
   return (
     <div className={classes.root}>
       <List direction="row" component="nav" aria-label="main info">
         <ListItem>
           <ListItemAvatar>
             <Avatar>
-              <LocationOnIcon />
+              <ContactPhoneIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={location} />
+          <ListItemText
+            primary={
+              contact.email !== ""
+                ? `信箱: ${contact.email} \n  FB: ${contact.facebook} \n 電話: ${contact.phoneNumber} \n 其他: ${contact.other}`
+                : ""
+            }
+          />
         </ListItem>
         <ListItem>
           <ListItemAvatar>
             <Avatar>
-              <TodayIcon />
+              <NotListedLocationIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={`${time.year}.${time.month}.${time.day}`} />
+          <ListItemText primary={itemState} />
         </ListItem>
         <ListItem>
           <ListItemAvatar>
             <Avatar>
-              <AccessTimeIcon />
+              <CategoryIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={`${time.hour}:${time.minute}`} />
+          <ListItemText primary={category} />
         </ListItem>
       </List>
     </div>
@@ -71,11 +79,13 @@ export default function SimpleList(props) {
 }
 
 SimpleList.propTypes = {
-  time: PropTypes.shape,
-  location: PropTypes.string,
+  contact: PropTypes.shape,
+  itemState: PropTypes.string,
+  category: PropTypes.string,
 };
 
 SimpleList.defaultProps = {
-  time: { year: 0, month: 0, day: 0, hour: 0, minute: 0 },
-  location: "Test location",
+  contact: { email: "", facebook: "", phoneNumber: "", other: "" },
+  itemState: "None",
+  category: "default",
 };

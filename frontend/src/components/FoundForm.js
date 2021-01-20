@@ -2,7 +2,7 @@
 /* eslint-disable no-alert */
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -22,7 +22,7 @@ import Description from "./Grids/Description";
 import Contact from "./Grids/Contact";
 
 import ImgUpload from "./ImgUpload";
-
+import { clearAll } from "../redux/actions";
 import { CREATE_ITEM_MUTATION } from "./graphql/index";
 
 const useStyles = makeStyles((theme) => ({
@@ -76,11 +76,19 @@ function FoundForm() {
   );
 
   const [snackbarOpen, setSnackbarOpen] = useState(false);
+<<<<<<< HEAD
   const [picDataURL, setPicDataURL] = useState("");
 
   const handleSubmit = () => {
     if (title === "" || location === "" || category === "") {
       alert("error");
+=======
+  const dispatch = useDispatch();
+
+  const handleSubmit = () => {
+    if (!title || !location || !category) {
+      setSnackbarOpen(true);
+>>>>>>> bdbfdf95cd0ac6b5d8d4b6dba03c6d2276103a5b
       return;
     }
     const createItemInput = {
@@ -115,6 +123,7 @@ function FoundForm() {
     }
     setSnackbarOpen(true);
     createItem({ variables });
+    dispatch(clearAll());
     history.push("/");
   };
 
@@ -149,14 +158,14 @@ function FoundForm() {
 
   return (
     <>
-      <main className={classes.layout}>
+      <div className={classes.layout}>
         <Snackbar
           open={snackbarOpen}
           autoHideDuration={2000}
           onClose={handleClose}
         >
-          <Alert onClose={handleClose} severity="success">
-            This is a success message!
+          <Alert onClose={handleClose} severity="error">
+            請填寫物品名、地點及類別
           </Alert>
         </Snackbar>
         <Paper className={classes.paper}>
@@ -183,7 +192,7 @@ function FoundForm() {
             </Button>
           </div>
         </Paper>
-      </main>
+      </div>
     </>
   );
 }

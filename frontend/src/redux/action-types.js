@@ -6,3 +6,4 @@ export const FILL_DESCRIPTION = "FILL_DESCRIPTION";
 export const SELECT_PICTURE = "SELECT_PICTURE";
 export const FILL_CONTACT = "FILL_CONTACT";
 export const FIND_SIMILAR_ITEM = "FIND_SIMILAR_ITEM";
+export const CLEAR_ALL = "CLEAR_ALL";

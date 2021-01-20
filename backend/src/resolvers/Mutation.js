@@ -1,12 +1,13 @@
 // eslint-disable-next-line max-len
-const StringToTime = (timeData) => new Date(
-  timeData.year,
-  timeData.month,
-  timeData.day,
-  timeData.hour,
-  timeData.minute,
-  timeData.second ? timeData.second : 0
-);
+const StringToTime = (timeData) =>
+  new Date(
+    timeData.year,
+    timeData.month,
+    timeData.day,
+    timeData.hour,
+    timeData.minute,
+    timeData.second ? timeData.second : 0
+  );
 
 const Mutation = {
   async createItem(parent, args, { db }) {
@@ -44,7 +45,7 @@ const Mutation = {
     if (args.time) {
       const updatedItem = await db.updateItem({
         ...args.data,
-        time: StringToTime(args.time).getTime()
+        time: StringToTime(args.time).getTime(),
       });
 
       return updatedItem;
@@ -57,7 +58,7 @@ const Mutation = {
   async deleteItem(parent, args, { db }) {
     const allItems = await db.getItems();
     const hasItem = allItems.findIndex(
-      (item) => (item.id.toString() === args.id.toString())
+      (item) => item.id.toString() === args.id.toString()
     );
 
     if (hasItem === -1) {
@@ -73,7 +74,7 @@ const Mutation = {
     const newCategory = db.pushCategory({ name: args.name });
 
     return newCategory;
-  }
+  },
 };
 
 export default Mutation;

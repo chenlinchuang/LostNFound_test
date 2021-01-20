@@ -7,6 +7,7 @@ import {
   FILL_CONTACT,
   SELECT_PICTURE,
   FIND_SIMILAR_ITEM,
+  CLEAR_ALL,
 } from "./action-types";
 
 const initialState = {
@@ -20,7 +21,7 @@ const initialState = {
   toFindSimilar: false,
 };
 
-const rootReducer = (state = initialState, action) => {
+const foundReducer = (state = initialState, action) => {
   switch (action.type) {
     case FILL_BRIEF_INTRO:
       return { ...state, briefIntro: action.payload };
@@ -38,9 +39,11 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, pic: action.payload };
     case FIND_SIMILAR_ITEM:
       return { ...state, toFindSimilar: action.payload };
+    case CLEAR_ALL:
+      return initialState;
     default:
       return state;
   }
 };
 
-export default rootReducer;
+export default foundReducer;

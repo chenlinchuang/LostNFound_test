@@ -5,7 +5,8 @@
   "dependencies": {
     "@apollo/client": "^3.3.7",
     "@date-io/date-fns": "1.3.13",
-    "@date-io/moment": "^2.10.6",
+    "@date-io/dayjs": "1.x",
+    "@date-io/moment": "1.3.9",
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
@@ -24,6 +25,7 @@
     "react-apollo": "^3.1.5",
     "react-dom": "^17.0.1",
     "react-images-upload": "^1.2.8",
+    "react-pure-render": "^1.0.2",
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",

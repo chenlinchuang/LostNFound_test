@@ -7,6 +7,7 @@ import {
   FILL_CONTACT,
   SELECT_PICTURE,
   FIND_SIMILAR_ITEM,
+  CLEAR_ALL,
 } from "./action-types";
 
 export const fillTitle = (payload) => {
@@ -39,4 +40,6 @@ export const selectPicture = (payload) => {
 
 export const findSimilarItem = (payload) => {
   return { type: FIND_SIMILAR_ITEM, payload };
+export const clearAll = () => {
+  return { type: CLEAR_ALL };
 };
