@@ -6,6 +6,7 @@ import {
   FILL_DESCRIPTION,
   FILL_CONTACT,
   SELECT_PICTURE,
+  CLEAR_ALL,
 } from "./action-types";
 
 const initialState = {
@@ -34,6 +35,8 @@ const foundReducer = (state = initialState, action) => {
       return { ...state, contact: action.payload };
     case SELECT_PICTURE:
       return { ...state, pic: action.payload };
+    case CLEAR_ALL:
+      return initialState;
     default:
       return state;
   }

@@ -5,7 +5,7 @@ const Category = {
       (item) => item.category.toString() === parent.id.toString()
     );
     return result;
-  }
+  },
 };
 
 export default Category;

@@ -2,7 +2,7 @@
 /* eslint-disable no-alert */
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -22,7 +22,7 @@ import Description from "./Grids/Description";
 import Contact from "./Grids/Contact";
 
 import ImgUpload from "./ImgUpload";
-
+import { clearAll } from "../redux/actions";
 import { CREATE_ITEM_MUTATION } from "./graphql/index";
 
 const useStyles = makeStyles((theme) => ({
@@ -75,8 +75,13 @@ function FoundForm() {
   );
 
   const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const handleSubmit = () => {
+    if (!title || !location || !category) {
+      setSnackbarOpen(true);
+      return;
+    }
     const createItemInput = {
       briefIntro: title,
       location,
@@ -95,6 +100,7 @@ function FoundForm() {
         time: time.valueOf().toString(),
       },
     });
+    dispatch(clearAll());
     history.push("/");
   };
 
@@ -115,14 +121,14 @@ function FoundForm() {
 
   return (
     <>
-      <main className={classes.layout}>
+      <div className={classes.layout}>
         <Snackbar
           open={snackbarOpen}
           autoHideDuration={2000}
           onClose={handleClose}
         >
-          <Alert onClose={handleClose} severity="success">
-            This is a success message!
+          <Alert onClose={handleClose} severity="error">
+            請填寫物品名、地點及類別
           </Alert>
         </Snackbar>
         <Paper className={classes.paper}>
@@ -149,7 +155,7 @@ function FoundForm() {
             </Button>
           </div>
         </Paper>
-      </main>
+      </div>
     </>
   );
 }

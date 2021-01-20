@@ -1202,15 +1202,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
-"@date-io/core@1.x", "@date-io/core@^1.3.13":
+"@date-io/core@1.x", "@date-io/core@^1.3.13", "@date-io/core@^1.3.9":
   version "1.3.13"
   resolved "https://registry.yarnpkg.com/@date-io/core/-/core-1.3.13.tgz#90c71da493f20204b7a972929cc5c482d078b3fa"
   integrity sha512-AlEKV7TxjeK+jxWVKcCFrfYAk8spX9aCyiToFIiLPtfQbsjmRGLIhb5VZgptQcJdHtLXo7+m0DuurwFgUToQuA==
-
-"@date-io/core@^2.10.6":
-  version "2.10.6"
-  resolved "https://registry.yarnpkg.com/@date-io/core/-/core-2.10.6.tgz#1a6e671b590a08af8bd0784f3a93670e5d2d5bd7"
-  integrity sha512-MGYt4GEB/4ZMdSbj6FS7/gPBvuhHUwnn5O6t8PlkSqGF1310qxypVyK4CZg5RQgev25L3R5eLVdNTyYrJOL8Rw==
 
 "@date-io/date-fns@1.3.13":
   version "1.3.13"
@@ -1219,7 +1214,6 @@
   dependencies:
     "@date-io/core" "^1.3.13"
 
-<<<<<<< HEAD
 "@date-io/dayjs@1.x":
   version "1.3.13"
   resolved "https://registry.yarnpkg.com/@date-io/dayjs/-/dayjs-1.3.13.tgz#3a9edf5a7227b31b0f00a4f640f8715626833a61"
@@ -1227,14 +1221,12 @@
   dependencies:
     "@date-io/core" "^1.3.13"
 
-=======
->>>>>>> fd4d3f04558bba4db6e0be5fd6674515a96dcddc
-"@date-io/moment@^2.10.6":
-  version "2.10.6"
-  resolved "https://registry.yarnpkg.com/@date-io/moment/-/moment-2.10.6.tgz#09fd03aed71d5df62bd9fa27446b6483093f767d"
-  integrity sha512-oIo24tW/l5kFxYV2B3Hc0joYKh59p7X7S36u0/inmf+Rk0Z8B4nU9jxuAgx5gbkFY2NVLwo1kr4l0CO2POtkYA==
+"@date-io/moment@1.3.9":
+  version "1.3.9"
+  resolved "https://registry.yarnpkg.com/@date-io/moment/-/moment-1.3.9.tgz#f8e69fb47e1647b31bf2328dd5da76e28d734087"
+  integrity sha512-kmY3B8fIATzUUt7jEs5sYWFiykUAIrVnM12/PNAH7tf4D7ulxzJdVCgiS/eLlSJgmQcKK2qHADOM5esu6/oL3Q==
   dependencies:
-    "@date-io/core" "^2.10.6"
+    "@date-io/core" "^1.3.9"
 
 "@emotion/hash@^0.8.0":
   version "0.8.0"
@@ -2343,8 +2335,6 @@
   dependencies:
     tslib "^1.14.1"
 
-<<<<<<< HEAD
-=======
 "@wry/equality@^0.1.9":
   version "0.1.11"
   resolved "https://registry.yarnpkg.com/@wry/equality/-/equality-0.1.11.tgz#35cb156e4a96695aa81a9ecc4d03787bc17f1790"
@@ -2352,7 +2342,6 @@
   dependencies:
     tslib "^1.9.3"
 
->>>>>>> fd4d3f04558bba4db6e0be5fd6674515a96dcddc
 "@wry/equality@^0.3.0":
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/@wry/equality/-/equality-0.3.1.tgz#81080cdc2e0d8265cd303faa0c64b38a77884e06"
@@ -5786,11 +5775,7 @@ hmac-drbg@^1.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
-<<<<<<< HEAD
-hoist-non-react-statics@^3.1.0, hoist-non-react-statics@^3.3.2:
-=======
 hoist-non-react-statics@^3.1.0, hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.2:
->>>>>>> fd4d3f04558bba4db6e0be5fd6674515a96dcddc
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
   integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
@@ -9419,8 +9404,6 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-<<<<<<< HEAD
-=======
 react-apollo@^3.1.5:
   version "3.1.5"
   resolved "https://registry.yarnpkg.com/react-apollo/-/react-apollo-3.1.5.tgz#36692d393c47e7ccc37f0a885c7cc5a8b4961c91"
@@ -9432,7 +9415,6 @@ react-apollo@^3.1.5:
     "@apollo/react-hooks" "^3.1.5"
     "@apollo/react-ssr" "^3.1.5"
 
->>>>>>> fd4d3f04558bba4db6e0be5fd6674515a96dcddc
 react-app-polyfill@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-app-polyfill/-/react-app-polyfill-2.0.0.tgz#a0bea50f078b8a082970a9d853dc34b6dcc6a3cf"
@@ -11161,8 +11143,6 @@ tryer@^1.0.1:
   resolved "https://registry.yarnpkg.com/tryer/-/tryer-1.0.1.tgz#f2c85406800b9b0f74c9f7465b81eaad241252f8"
   integrity sha512-c3zayb8/kWWpycWYg87P71E1S1ZL6b6IJxfb5fvsUgsf0S2MVGaDhDXXjDMpdCpfWXqptc+4mXwmiy1ypXqRAA==
 
-<<<<<<< HEAD
-=======
 ts-invariant@^0.4.4:
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/ts-invariant/-/ts-invariant-0.4.4.tgz#97a523518688f93aafad01b0e80eb803eb2abd86"
@@ -11170,7 +11150,6 @@ ts-invariant@^0.4.4:
   dependencies:
     tslib "^1.9.3"
 
->>>>>>> fd4d3f04558bba4db6e0be5fd6674515a96dcddc
 ts-invariant@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/ts-invariant/-/ts-invariant-0.6.0.tgz#44066ecfeb7a806ff1c3b0b283408a337a885412"

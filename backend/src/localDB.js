@@ -31,7 +31,7 @@ const items = [
     time: 1610930897132,
     description: "",
     isMatch: "IS_MATCH",
-  }
+  },
 ];
 
 const categories = [
@@ -58,14 +58,14 @@ const pictures = [
     id: "11",
     DataURL: "picture01",
     filename: "picture01.png",
-    lastModified: 1602655902693
+    lastModified: 1602655902693,
   },
   {
     id: "12",
     DataURL: "picture02",
     filename: "picture02.png",
-    lastModified: 1602605902693
-  }
+    lastModified: 1602605902693,
+  },
 ];
 
 const contacts = [
@@ -73,13 +73,13 @@ const contacts = [
     id: "51",
     email: "123@gmail.com",
     fackbook: "123",
-    phoneNumber: "09123456789"
+    phoneNumber: "09123456789",
   },
   {
     id: "52",
     email: "qqq@yahoo.com.tw",
     facebook: "888",
-    other: "test"
+    other: "test",
   },
 ];
 
@@ -88,16 +88,16 @@ const getCategories = () => categories;
 const getPictures = () => pictures;
 const getContacts = () => contacts;
 
-const getItemById = (id) => items.find((item) => (item.id.toString() === id));
-const getCategoryById = (id) => categories.find((c) => (c.id.toString() === id));
-const getPictureById = (id) => pictures.find((p) => (p.id.toString() === id));
+const getItemById = (id) => items.find((item) => item.id.toString() === id);
+const getCategoryById = (id) => categories.find((c) => c.id.toString() === id);
+const getPictureById = (id) => pictures.find((p) => p.id.toString() === id);
 const getContactById = (id) => contacts.find((c) => c.id.toString() === id);
 
 const pushItem = (data) => {
   const id = uuidv4();
   const response = {
     ...data,
-    id
+    id,
   };
   items.push(response);
   console.log("pushedItem:", response);
@@ -132,7 +132,8 @@ const popPicture = (picID) => {
 
 const popContact = (contactID) => {
   const deletedContact = contacts.splice(
-    contacts.findIndex((c) => (c.id.toString() === contactID.toString())), 1
+    contacts.findIndex((c) => c.id.toString() === contactID.toString()),
+    1
   )[0];
 
   console.log("deletedContact:", deletedContact);
@@ -171,7 +172,7 @@ const pushCategory = (data) => {
 const pushPicture = (data) => {
   const newPicture = {
     ...data,
-    id: uuidv4()
+    id: uuidv4(),
   };
   pictures.push(newPicture);
   console.log("pushPicture:", newPicture);
@@ -181,7 +182,7 @@ const pushPicture = (data) => {
 const pushContact = (data) => {
   const newContact = {
     ...data,
-    id: uuidv4()
+    id: uuidv4(),
   };
   contacts.push(newContact);
   console.log("pushContact:", newContact);

@@ -20,13 +20,13 @@ const Picture = {
     console.log("picture items:", allItems);
     const result = allItems.find((item) => {
       if (item.pic) {
-        return (item.pic.toString() === parent.id.toString());
+        return item.pic.toString() === parent.id.toString();
       }
 
       return false;
     });
     return result;
-  }
+  },
 };
 
 export default Picture;

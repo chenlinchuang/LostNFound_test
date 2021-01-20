@@ -6,6 +6,7 @@ import {
   FILL_DESCRIPTION,
   FILL_CONTACT,
   SELECT_PICTURE,
+  CLEAR_ALL,
 } from "./action-types";
 
 export const fillTitle = (payload) => {
@@ -34,4 +35,8 @@ export const fillContact = (payload) => {
 
 export const selectPicture = (payload) => {
   return { type: SELECT_PICTURE, payload };
+};
+
+export const clearAll = () => {
+  return { type: CLEAR_ALL };
 };

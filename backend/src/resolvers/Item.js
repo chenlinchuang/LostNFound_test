@@ -16,7 +16,9 @@ const Item = {
   },
   async category(parent, args, { db }) {
     const allCategories = await db.getCategories();
-    const result = allCategories.find((c) => c.id.toString() === parent.category.toString());
+    const result = allCategories.find(
+      (c) => c.id.toString() === parent.category.toString()
+    );
     return result;
   },
   async pic(parent, args, { db }) {
@@ -26,7 +28,7 @@ const Item = {
   async contact(parent, args, { db }) {
     const result = await db.getContactById(parent.contact);
     return result;
-  }
+  },
 };
 
 export default Item;

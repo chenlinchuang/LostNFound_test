@@ -5,3 +5,4 @@ export const SELECT_CATEGORY = "SELECT_CATEGORY";
 export const FILL_DESCRIPTION = "FILL_DESCRIPTION";
 export const SELECT_PICTURE = "SELECT_PICTURE";
 export const FILL_CONTACT = "FILL_CONTACT";
+export const CLEAR_ALL = "CLEAR_ALL";

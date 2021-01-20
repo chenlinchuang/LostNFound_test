@@ -30,6 +30,18 @@ export default (isLost) => {
             "aria-label": "change date",
           }}
         />
+        <KeyboardTimePicker
+          margin="normal"
+          id="time-picker"
+          label={isLost ? "遺失時間" : "拾獲時間"}
+          value={time}
+          onChange={(date) => {
+            dispatch(selectTime(date));
+          }}
+          KeyboardButtonProps={{
+            "aria-label": "change time",
+          }}
+        />
       </Grid>
     </MuiPickersUtilsProvider>
   );
