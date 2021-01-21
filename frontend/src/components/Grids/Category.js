@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useQuery } from "@apollo/client";
-
+import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
@@ -22,10 +22,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Category() {
+function Category(props) {
   const classes = useStyles();
   const dispatch = useDispatch();
   const category = useSelector((state) => state.category);
+  const { onClicked } = props;
   const { loading, data, error } = useQuery(CATEGORIES_QUERY);
 
   const options = !data ? (
@@ -40,25 +41,51 @@ function Category() {
 
   return (
     <Grid item xs={12} sm={3}>
-      <FormControl required className={classes.formControl}>
-        <InputLabel htmlFor="category">類別</InputLabel>
-        <Select
-          native
-          value={category}
-          onChange={(e) => {
-            dispatch(selectCategory(e.target.value));
-          }}
-          inputProps={{
-            name: "category",
-            id: "category",
-          }}
-        >
-          {options}
-          <option selected="selected">其他</option>
-        </Select>
-      </FormControl>
+      {onClicked && (category === "" || category === undefined) ? (
+        <FormControl error className={classes.formControl}>
+          <InputLabel htmlFor="category">類別</InputLabel>
+          <Select
+            native
+            value={category}
+            onChange={(e) => {
+              dispatch(selectCategory(e.target.value));
+            }}
+            inputProps={{
+              name: "category",
+              id: "category",
+            }}
+          >
+            {options}
+          </Select>
+        </FormControl>
+      ) : (
+        <FormControl required className={classes.formControl}>
+          <InputLabel htmlFor="category">類別</InputLabel>
+          <Select
+            native
+            value={category}
+            onChange={(e) => {
+              dispatch(selectCategory(e.target.value));
+            }}
+            inputProps={{
+              name: "category",
+              id: "category",
+            }}
+          >
+            {options}
+          </Select>
+        </FormControl>
+      )}
     </Grid>
   );
 }
 
 export default Category;
+
+Category.propTypes = {
+  onClicked: PropTypes.bool,
+};
+
+Category.defaultProps = {
+  onClicked: false,
+};

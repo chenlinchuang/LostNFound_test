@@ -81,7 +81,7 @@ function FoundForm() {
   const dispatch = useDispatch();
 
   const handleSubmit = () => {
-    if (title === "" || location === "" || category === "") {
+    if (title === "" || location === "" || !category) {
       setSnackbarOpen(true);
       return;
     }
@@ -150,6 +150,7 @@ function FoundForm() {
     setSnackbarOpen(false);
   };
 
+  const [onSubmit, setOnSubmit] = useState(false);
   return (
     <>
       <div className={classes.layout}>
@@ -167,9 +168,9 @@ function FoundForm() {
             申報拾獲物
           </Typography>
           <Grid container spacing={3}>
-            <BriefIntro />
-            <Category />
-            <Location />
+            <BriefIntro onClicked={onSubmit} />
+            <Category onClicked={onSubmit} />
+            <Location onClicked={onSubmit} />
             <Contact />
             <Time />
             <Description />
@@ -179,7 +180,10 @@ function FoundForm() {
             <Button
               variant="contained"
               color="primary"
-              onClick={handleSubmit}
+              onClick={() => {
+                handleSubmit();
+                setOnSubmit(true);
+              }}
               className={classes.button}
             >
               Submit

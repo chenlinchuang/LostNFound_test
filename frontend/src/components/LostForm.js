@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const handleSubmit = (history, t, c, l, ti) => {
-  if (t !== "" && l !== "") {
+  if (t !== "" && l !== "" && !c) {
     alert(`title:${t}, cat: ${c}, location: ${l}, time:${ti}`);
     history.push("/");
   }
@@ -77,7 +77,7 @@ const FoundForm = () => {
           </Typography>
           <Grid container spacing={3}>
             <BriefIntro onClicked={onSubmit} />
-            <Category />
+            <Category onClicked={onSubmit} />
             <Location isLost onClicked={onSubmit} />
             <Contact />
             <Time isLost />
