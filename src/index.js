@@ -13,7 +13,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import store from "./redux/store";
 
-const httpLink = new HttpLink({ uri: "https://lost-and-found-group14-backend.herokuapp.com/" });
+const httpLink = new HttpLink({ uri: "http://140.112.249.213/" });
 
 const client = new ApolloClient({
   link: httpLink,
