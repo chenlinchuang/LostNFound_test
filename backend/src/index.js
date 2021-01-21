@@ -5,9 +5,10 @@ import Mutation from "./resolvers/Mutation";
 import Item from "./resolvers/Item";
 import Picture from "./resolvers/Picture";
 import Category from "./resolvers/Category";
+import DB from "./db";
 
 // Testing database
-import db from "./localDB";
+// import db from "./localDB";
 
 require("dotenv-defaults").config({
   path: "./.env",
@@ -16,6 +17,10 @@ require("dotenv-defaults").config({
 });
 
 const mongoose = require("mongoose");
+const ItemsModel = require("./models/items");
+const CategoriesModel = require("./models/categories");
+const PicturesModel = require("./models/pictures");
+const ContactsModel = require("./models/contacts");
 
 if (!process.env.MONGO_URL) {
   console.error("Missing MONGO_URL!!!");
@@ -35,6 +40,7 @@ mongoose.connect(process.env.MONGO_URL, dboptions);
 const mongoDB = mongoose.connection;
 const pubsub = new PubSub();
 const PORT = process.env.port || 4000;
+const db = new DB(ItemsModel, CategoriesModel, PicturesModel, ContactsModel);
 
 mongoDB.on("error", (error) => {
   console.error(error);

@@ -10,8 +10,8 @@ const CATEGORIES_QUERY = gql`
 `;
 
 const ITEMS_QUERY = gql`
-  query getItems($query: String) {
-    items(query: $query) {
+  query getItems($query: String, $id: ID) {
+    items(query: $query, id: $id) {
       id
       briefIntro
       location
