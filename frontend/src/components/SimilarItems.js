@@ -8,6 +8,7 @@ import Paper from "@material-ui/core/Paper";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 
+import { useHistory } from "react-router-dom";
 import PostCard from "../mini_components/PostPreview";
 import NoImageIcon from "../static/456.jpg";
 import NoDataImg from "../static/noData.png";
@@ -41,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
 
 function SimilarItems() {
   const classes = useStyles();
+  const history = useHistory();
   const title = useSelector((state) => state.briefIntro);
   const toFindSimilar = useSelector((state) => state.toFindSimilar);
   const [findSimilar, { loading, data, error }] = useLazyQuery(ITEMS_QUERY);
@@ -66,6 +68,7 @@ function SimilarItems() {
             image={item.pic ? item.pic.DataURL : NoImageIcon}
             time={item.time}
             location={item.location}
+            onClickFuncDetail={() => history.push(`/post/${item.id}`)}
           />
         </ListItem>
       ))
