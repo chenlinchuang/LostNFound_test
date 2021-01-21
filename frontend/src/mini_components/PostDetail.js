@@ -12,24 +12,31 @@ import SimpleList2 from "./List2";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    minWidth: "100vw",
+    minHeight: "100vh",
+    background: "#ffffff",
+    backgroundColor: "#ffffff",
   },
   control: {
     paddingLeft: 30,
   },
   demo: {
     backgroundColor: "#ffffff",
-    background: "#000000",
-    textDecorationColor: "#000000",
   },
   demo2: {
     backgroundColor: "#f5f5f5",
-    background: "#000000",
-    textDecorationColor: "#000000",
   },
   image: {
-    width: "90%",
-    height: "auto",
+    width: "auto",
+    height: "100%",
+    maxWidth: "500px",
     borderRadius: "15px",
+  },
+  typo: {
+    color: "#000000",
+  },
+  border: {
+    borderRadius: "20px",
   },
 }));
 
@@ -46,38 +53,42 @@ export default function PostDetail(props) {
     description,
   } = props;
   return (
-    <Container maxWidth="lg">
-      <Grid item>
-        <Grid container direction="column" spacing={4}>
-          <Grid item className={classes.demo}>
-            <img src={image} alt="ID card" className={classes.image} />
-          </Grid>
-          <Grid item className={classes.demo}>
-            <Typography variant="h4" align="center">
-              {briefInfo}
-            </Typography>
-          </Grid>
-          <Grid container direction="row" className={classes.demo2}>
-            <Grid item>
-              <SimpleList time={time} location={location} />
+    <div className={classes.root}>
+      <Grid container direction="row" className={classes.border}>
+        <Grid item xs={6} className={classes.border}>
+          <Grid container direction="column" spacing={4}>
+            <Grid item className={classes.demo}>
+              <img src={image} alt="ID card" className={classes.image} />
+            </Grid>
+            <Grid item className={classes.demo}>
+              <Typography variant="h4" align="center" className={classes.typo}>
+                {briefInfo}
+              </Typography>
+            </Grid>
+            <Grid container direction="row" className={classes.demo2}>
+              <Grid item xs={6}>
+                <SimpleList time={time} location={location} />
+              </Grid>
+              <Grid item xs={6}>
+                <SimpleList2
+                  contact={contact}
+                  itemState={itemState}
+                  category={category}
+                />
+              </Grid>
             </Grid>
             <Grid item>
-              <SimpleList2
-                contact={contact}
-                itemState={itemState}
-                category={category}
-              />
+              <Typography variant="body1" className={classes.typo}>
+                {description}
+              </Typography>
             </Grid>
-          </Grid>
-          <Grid item>
-            <Typography variant="h5">{description}</Typography>
           </Grid>
         </Grid>
+        <Grid item xs={6}>
+          <SimpleMapPage />
+        </Grid>
       </Grid>
-      <Grid item>
-        <SimpleMapPage />
-      </Grid>
-    </Container>
+    </div>
   );
 }
 
