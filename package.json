@@ -6,7 +6,8 @@
   "private": true,
   "scripts": {
     "start": "node ./src/index.js",
-    "heroku-postbuild": "npm run build",
+    "heroku-postbuild": "yarn run build",
+    "build": "babel src/*.js -d dist",
     "lint": "eslint --ignore-path ../.gitignore .",
     "format": "prettier --ignore-path ../.gitignore --write \"**/*.+(js|json)\""
   },
