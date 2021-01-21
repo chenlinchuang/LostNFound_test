@@ -18,7 +18,7 @@ const ImgUpload = () => {
             dispatch(selectPicture(pic));
           }}
           imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-          maxFileSize={5242880 * 4}
+          maxFileSize={5242880}
           withPreview
           singleImage
         />
