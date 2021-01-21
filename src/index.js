@@ -39,7 +39,7 @@ mongoose.connect(process.env.MONGO_URL, dboptions);
 
 const mongoDB = mongoose.connection;
 const pubsub = new PubSub();
-const PORT = process.env.port || 4000;
+const PORT = process.env.port || 80;
 const db = new DB(ItemsModel, CategoriesModel, PicturesModel, ContactsModel);
 
 mongoDB.on("error", (error) => {
