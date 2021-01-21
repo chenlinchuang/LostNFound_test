@@ -12,7 +12,7 @@ const timeToString = (time) => {
 
 const Item = {
   time(parent) {
-    return timeToString(parent.time);
+    return timeToString(parseInt(parent.time, 10));
   },
   async category(parent, args, { db }) {
     const allCategories = await db.getCategories();

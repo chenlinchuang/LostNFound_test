@@ -1,13 +1,12 @@
 // eslint-disable-next-line max-len
-const StringToTime = (timeData) =>
-  new Date(
-    timeData.year,
-    timeData.month,
-    timeData.day,
-    timeData.hour,
-    timeData.minute,
-    timeData.second ? timeData.second : 0
-  );
+const StringToTime = (timeData) => new Date(
+  timeData.year,
+  timeData.month,
+  timeData.day,
+  timeData.hour,
+  timeData.minute,
+  timeData.second ? timeData.second : 0
+);
 
 const Mutation = {
   async createItem(parent, args, { db }) {
