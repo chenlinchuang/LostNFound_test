@@ -20,7 +20,7 @@ import PropTypes from "prop-types";
 const useStyles = makeStyles(() => ({
   root: {
     width: "100%",
-    maxWidth: 360,
+    maxWidth: 700,
     backgroundColor: "#f5f5f5",
   },
 }));

@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLazyQuery } from "@apollo/client";
-
+import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 
-import PostCard from "../mini_components/PostPreview";
+import PostPreview from "../mini_components/PostPreview";
 import NoImageIcon from "../static/456.jpg";
 import NoDataImg from "../static/noData.png";
 import { ITEMS_QUERY } from "./graphql/index";
@@ -42,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
 
 function SearchItems() {
   const classes = useStyles();
+  const history = useHistory();
   const searchItemName = useSelector((state) => state.searchItemName);
   // const toFindSimilar = useSelector((state) => state.toFindSimilar);
   const [findSimilar, { loading, data, error }] = useLazyQuery(ITEMS_QUERY);
@@ -61,7 +62,9 @@ function SearchItems() {
     ) : (
       data.items.map((item) => (
         <ListItem>
-          <PostCard
+          <PostPreview
+            id={item.id}
+            onClickFuncDetail={() => history.push(`/post/${item.id}`)}
             briefInfo={item.briefIntro}
             image={item.pic ? item.pic.DataURL : NoImageIcon}
             time={item.time}

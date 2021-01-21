@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link, useParams } from "react-router-dom";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
@@ -9,6 +9,7 @@ import Divider from "@material-ui/core/Divider";
 import Found from "../containers/Found";
 import SideDrawer from "./SideDrawer";
 import PostIndex from "../mini_components/index";
+import PostPage from "../containers/PostPage";
 import Lost from "../containers/Lost";
 import LostForm from "./LostForm";
 import AfterSearch from "../containers/AfterSearch";
@@ -118,6 +119,7 @@ const Test = () => {
         <Route exact path="/lost" component={Lost} />
         <Route path="/lost/form" component={LostForm} />
         <Route path="/lost/search" component={SideDrawer} />
+        <Route path="/post/:id" component={PostPage} />
       </Switch>
     </div>
   );

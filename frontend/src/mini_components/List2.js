@@ -49,13 +49,7 @@ export default function SimpleList(props) {
               <ContactPhoneIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText
-            primary={
-              contact.email !== ""
-                ? `信箱: ${contact.email} \n  FB: ${contact.facebook} \n 電話: ${contact.phoneNumber} \n 其他: ${contact.other}`
-                : ""
-            }
-          />
+          <ListItemText primary={contact} />
         </ListItem>
         <ListItem>
           <ListItemAvatar>
