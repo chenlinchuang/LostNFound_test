@@ -16,6 +16,7 @@ const ITEMS_QUERY = gql`
       briefIntro
       location
       description
+      isMatch
       contact {
         id
         other
