@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
 
 const handleSubmit = (history, t, c, l, ti) => {
   if (t !== "" && l !== "" && !c) {
-    alert(`title:${t}, cat: ${c}, location: ${l}, time:${ti}`);
+    // alert(`title:${t}, cat: ${c}, location: ${l}, time:${ti}`);
     history.push("/");
   }
 };
