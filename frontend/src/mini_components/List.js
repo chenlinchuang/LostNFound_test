@@ -23,6 +23,9 @@ const useStyles = makeStyles(() => ({
     maxWidth: 700,
     backgroundColor: "#f5f5f5",
   },
+  typo: {
+    color: "#000000",
+  },
 }));
 /*
 const flexContainer = {
@@ -47,7 +50,7 @@ export default function SimpleList(props) {
               <LocationOnIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={location} />
+          <ListItemText primary={location} className={classes.typo} />
         </ListItem>
         <ListItem>
           <ListItemAvatar>
@@ -55,7 +58,10 @@ export default function SimpleList(props) {
               <TodayIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={`${time.year}.${time.month}.${time.day}`} />
+          <ListItemText
+            primary={`${time.year}.${time.month}.${time.day}`}
+            className={classes.typo}
+          />
         </ListItem>
         <ListItem>
           <ListItemAvatar>
@@ -63,7 +69,10 @@ export default function SimpleList(props) {
               <AccessTimeIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={`${time.hour}:${time.minute}`} />
+          <ListItemText
+            primary={`${time.hour}:${time.minute}`}
+            className={classes.typo}
+          />
         </ListItem>
       </List>
     </div>

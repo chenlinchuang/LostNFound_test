@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     width: "auto",
-    height: "100%",
+    height: "auto",
     maxWidth: "500px",
     borderRadius: "15px",
   },

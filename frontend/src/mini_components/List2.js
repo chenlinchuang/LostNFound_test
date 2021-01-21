@@ -25,6 +25,9 @@ const useStyles = makeStyles(() => ({
     maxWidth: 360,
     backgroundColor: "#f5f5f5",
   },
+  typo: {
+    color: "#000000",
+  },
 }));
 /*
 const flexContainer = {
@@ -49,7 +52,7 @@ export default function SimpleList(props) {
               <ContactPhoneIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={contact} />
+          <ListItemText primary={contact} className={classes.typo} />
         </ListItem>
         <ListItem>
           <ListItemAvatar>
@@ -57,7 +60,7 @@ export default function SimpleList(props) {
               <NotListedLocationIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={itemState} />
+          <ListItemText primary={itemState} className={classes.typo} />
         </ListItem>
         <ListItem>
           <ListItemAvatar>
@@ -65,7 +68,7 @@ export default function SimpleList(props) {
               <CategoryIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={category} />
+          <ListItemText primary={category} className={classes.typo} />
         </ListItem>
       </List>
     </div>
