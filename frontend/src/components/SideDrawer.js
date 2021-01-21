@@ -102,9 +102,11 @@ function ResponsiveDrawer() {
         </ListItem>
         <ListItem>
           <span className={classes.filterCondition}>
-            <Grid container>
+            <Grid container justify="center">
               <Grid item xs={10}>
-                <ListItemText>最新</ListItemText>
+                <ListItemText>
+                  <div style={{ paddingTop: 11 }}>最新</div>
+                </ListItemText>
               </Grid>
               <Grid item xs={2}>
                 <FormControlLabel
@@ -126,7 +128,9 @@ function ResponsiveDrawer() {
             <Grid item alignContent="center">
               <Grid container alignItems="center">
                 <Grid item xs={10} alignContent="center">
-                  <ListItemText>類別</ListItemText>
+                  <ListItemText>
+                    <div style={{ paddingTop: 6 }}>類別</div>
+                  </ListItemText>
                 </Grid>
                 <Grid item xs={2}>
                   <FormControlLabel
@@ -152,7 +156,9 @@ function ResponsiveDrawer() {
             <Grid item alignContent="center">
               <Grid container alignItems="center">
                 <Grid item xs={10} alignContent="center">
-                  <ListItemText>地點</ListItemText>
+                  <ListItemText>
+                    <div style={{ paddingTop: 6 }}>地點</div>
+                  </ListItemText>
                 </Grid>
                 <Grid item xs={2}>
                   <FormControlLabel
