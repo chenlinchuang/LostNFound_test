@@ -5,9 +5,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "node ./src/index.js",
-    "heroku-postbuild": "yarn run build",
-    "build": "babel src/*.js -d dist",
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel -d ./build ./src -s",
+    "build": "yarn run clean && yarn run build-babel",
+    "start": "yarn run build && node ./build/index.js",
     "lint": "eslint --ignore-path ../.gitignore .",
     "format": "prettier --ignore-path ../.gitignore --write \"**/*.+(js|json)\""
   },
