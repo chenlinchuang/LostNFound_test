@@ -11,6 +11,7 @@ import { Typography } from "@material-ui/core";
 import PostDetail from "../mini_components/PostDetail";
 
 import { ITEMS_QUERY } from "../components/graphql/index";
+import NoDataImage from "../static/456.jpg";
 
 const theme = createMuiTheme({
   typography: {
@@ -38,7 +39,7 @@ export default function PostPage() {
       : {
           ...data.items[0],
           category: data.items[0].category.name,
-          image: data.items[0].pic.DataURL,
+          image: data.items[0].pic ? data.items[0].pic.DataURL :  NoDataImage,
           itemState: data.items[0].isMatch,
         };
 

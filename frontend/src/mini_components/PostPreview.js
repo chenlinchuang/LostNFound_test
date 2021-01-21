@@ -70,15 +70,6 @@ export default function PostPreview(props) {
               <Grid item>
                 <Button
                   variant="contained"
-                  color="primary"
-                  onClick={onClickFuncShare}
-                >
-                  Share
-                </Button>
-              </Grid>
-              <Grid item>
-                <Button
-                  variant="contained"
                   color="secondary"
                   onClick={onClickFuncDetail}
                 >

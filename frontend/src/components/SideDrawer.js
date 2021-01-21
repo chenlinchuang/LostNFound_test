@@ -103,7 +103,7 @@ function ResponsiveDrawer() {
       </div>
       <Divider />
 
-      <List>
+      {/* <List>
         <ListItem>
           <ListItemText>
             <span className={classes.subtitle}>篩選條件</span>
@@ -184,7 +184,7 @@ function ResponsiveDrawer() {
           </Grid>
         </ListItem>
       </List>
-      <Divider />
+      <Divider /> */}
     </div>
   );
 
