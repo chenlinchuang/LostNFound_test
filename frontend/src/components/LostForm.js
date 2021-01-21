@@ -1,5 +1,5 @@
 /* eslint-disable no-alert */
-import React from "react";
+import React, { useState } from "react";
 //  import ReactDom from "react-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
@@ -53,19 +53,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const handleSubmit = (history, t, c, l, ti) => {
-  alert(`title:${t}, cat: ${c}, location: ${l}, time:${ti}`);
-  history.push("/");
+  if (t !== "" && l !== "") {
+    alert(`title:${t}, cat: ${c}, location: ${l}, time:${ti}`);
+    history.push("/");
+  }
 };
 
 const FoundForm = () => {
   const classes = useStyles();
   const history = useHistory();
+  const [onSubmit, setOnSubmit] = useState(false);
   // Below only for test
   const title = useSelector((state) => state.briefIntro);
   const category = useSelector((state) => state.category);
   const location = useSelector((state) => state.location);
   const time = useSelector((state) => state.time);
-
   return (
     <>
       <main className={classes.layout}>
@@ -74,9 +76,9 @@ const FoundForm = () => {
             登記遺失物
           </Typography>
           <Grid container spacing={3}>
-            <BriefIntro />
+            <BriefIntro onClicked={onSubmit} />
             <Category />
-            <Location isLost />
+            <Location isLost onClicked={onSubmit} />
             <Contact />
             <Time isLost />
             <Description />
@@ -87,7 +89,10 @@ const FoundForm = () => {
               variant="contained"
               color="primary"
               onClick={
-                () => handleSubmit(history, title, category, location, time)
+                () => {
+                  setOnSubmit(true);
+                  handleSubmit(history, title, category, location, time);
+                }
                 // eslint-disable-next-line react/jsx-curly-newline
               }
               className={classes.button}

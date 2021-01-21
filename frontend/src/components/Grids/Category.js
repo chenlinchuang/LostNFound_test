@@ -54,6 +54,7 @@ function Category() {
           }}
         >
           {options}
+          <option selected="selected">其他</option>
         </Select>
       </FormControl>
     </Grid>

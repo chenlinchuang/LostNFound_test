@@ -5,6 +5,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
+import Divider from "@material-ui/core/Divider";
 import Found from "../containers/Found";
 import SideDrawer from "./SideDrawer";
 import PostIndex from "../mini_components/index";
@@ -24,7 +25,17 @@ const useStyles = makeStyles((theme) => ({
   },
   titlePadding: {
     paddingTop: "130px",
-  }
+  },
+  divider: {
+    marginTop: "20px",
+    background: "#FFFFFF",
+  },
+  tyopPaddingT: {
+    paddingBottom: "20px",
+  },
+  typoPaddingD: {
+    paddingTop: "20px",
+  },
 }));
 
 const WhiteTextTypography = withStyles({
@@ -43,8 +54,21 @@ const Buttons = () => {
         </Grid>
         <Grid item className={classes.titleMargin}>
           <div className={classes.titlePadding}>
-            <WhiteTextTypography variant="h1" align="left">LostNFound</WhiteTextTypography>
-            <WhiteTextTypography variant="h2" align="left">遺失物通報系統</WhiteTextTypography>
+            <WhiteTextTypography
+              variant="h1"
+              align="left"
+              className={classes.typoPaddingT}
+            >
+              LostNFound
+            </WhiteTextTypography>
+            <Divider className={classes.divider} />
+            <WhiteTextTypography
+              variant="h2"
+              align="left"
+              className={classes.typoPaddingD}
+            >
+              遺失物通報系統
+            </WhiteTextTypography>
           </div>
         </Grid>
       </Grid>
