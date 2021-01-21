@@ -7,7 +7,7 @@ import { IconButton } from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Button from "@material-ui/core/Button";
 import CreateIcon from "@material-ui/icons/Create";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../components/SearchBarMain";
 //	import { connect } from "react-redux"
 
 const FoundPage = () => {

@@ -118,7 +118,7 @@ const Test = () => {
         <Route path="/imgupload" component={AfterSearch} />
         <Route exact path="/lost" component={Lost} />
         <Route path="/lost/form" component={LostForm} />
-        <Route path="/lost/search" component={SideDrawer} />
+        <Route path="/lost/search" component={AfterSearch} />
         <Route path="/post/:id" component={PostPage} />
       </Switch>
     </div>
