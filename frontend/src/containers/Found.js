@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 import React from "react";
-//  import ReactDom from "react-dom";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import { IconButton } from "@material-ui/core";
@@ -12,6 +12,7 @@ import SimilarItems from "../components/SimilarItems";
 
 const FoundPage = () => {
   const history = useHistory();
+  const toFindSimilar = useSelector((state) => state.toFindSimilar);
   return (
     <>
       <Grid container justify="flex-start">
@@ -25,10 +26,14 @@ const FoundPage = () => {
         </IconButton>
       </Grid>
       <Grid container alignItems="flex-start" spacing={1} justify="center">
-        <Grid item xs={6} spacing={5}>
-          <SimilarItems />
-        </Grid>
-        <Grid item xs={6}>
+        {toFindSimilar === undefined ? (
+          <div />
+        ) : (
+          <Grid item xs={6} spacing={5}>
+            <SimilarItems />
+          </Grid>
+        )}
+        <Grid item xs={toFindSimilar === undefined ? 12 : 6}>
           <FoundForm />
         </Grid>
       </Grid>

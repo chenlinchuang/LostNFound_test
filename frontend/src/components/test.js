@@ -6,6 +6,7 @@ import SideDrawer from "./SideDrawer";
 import PostIndex from "../mini_components/index";
 import Lost from "../containers/Lost";
 import LostForm from "./LostForm";
+import AfterSearch from "../containers/AfterSearch";
 
 const Buttons = () => {
   return (
@@ -54,6 +55,8 @@ const Test = () => {
       <Switch>
         <Route exact path="/" component={Buttons} />
         <Route path="/postindex" component={PostIndex} />
+        <Route path="/found" component={Found} />
+        <Route path="/imgupload" component={AfterSearch} />
         <Route exact path="/lost" component={Lost} />
         <Route path="/lost/form" component={LostForm} />
         <Route path="/lost/search" component={SideDrawer} />

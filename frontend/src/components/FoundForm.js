@@ -99,7 +99,7 @@ function FoundForm() {
     if (contact && contact.name) {
       variables = {
         ...variables,
-        contact: { other: contact }
+        contact: { other: contact },
       };
     }
     if (pic && pic.length > 0) {

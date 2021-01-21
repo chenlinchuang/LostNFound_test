@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import Paper from "@material-ui/core/Paper";
@@ -6,6 +7,8 @@ import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
 // import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
+
+import { searchItem } from "../redux/actions";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,19 +30,37 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchBar() {
   const classes = useStyles();
+  const searchItemName = useSelector((state) => state.searchItemName);
+  const dispatch = useDispatch();
+  const [inputValue, setInputValue] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("submit", inputValue);
+    dispatch(searchItem(inputValue));
+    setInputValue("");
+  };
 
   return (
     <Paper component="form" className={classes.root}>
-      <InputBase className={classes.input} placeholder="Search" />
-      <Link to="/lost/search">
-        <IconButton
-          type="submit"
-          className={classes.iconButton}
-          aria-label="search"
-        >
-          <SearchIcon />
-        </IconButton>
-      </Link>
+      <InputBase
+        className={classes.input}
+        placeholder="Search"
+        value={inputValue}
+        onChange={(e) => {
+          setInputValue(e.target.value);
+        }}
+      />
+      {/* <Link to="/lost/search"> */}
+      <IconButton
+        type="submit"
+        className={classes.iconButton}
+        aria-label="search"
+        onClick={handleSubmit}
+      >
+        <SearchIcon />
+      </IconButton>
+      {/* </Link> */}
     </Paper>
   );
 }

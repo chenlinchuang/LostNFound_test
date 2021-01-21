@@ -39,19 +39,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SimilarItems() {
+function SearchItems() {
   const classes = useStyles();
-  const title = useSelector((state) => state.briefIntro);
-  const toFindSimilar = useSelector((state) => state.toFindSimilar);
+  const searchItemName = useSelector((state) => state.searchItemName);
+  // const toFindSimilar = useSelector((state) => state.toFindSimilar);
   const [findSimilar, { loading, data, error }] = useLazyQuery(ITEMS_QUERY);
 
   useEffect(() => {
-    if (toFindSimilar) {
-      findSimilar({ variables: { query: title } });
-    }
-  }, [findSimilar, title, toFindSimilar]);
+    findSimilar({ variables: { query: searchItemName } });
+  }, [findSimilar, searchItemName]);
 
   useEffect(() => console.log("dd:", data), [data]);
+  useEffect(() => console.log("ss:", searchItemName), [searchItemName]);
 
   const similarItems =
     loading || !data || data.items.length === 0 ? (
@@ -76,7 +75,7 @@ function SimilarItems() {
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center">
-            相似結果
+            {`搜尋結果：${searchItemName}`}
           </Typography>
           <List>{similarItems}</List>
         </Paper>
@@ -85,4 +84,4 @@ function SimilarItems() {
   );
 }
 
-export default SimilarItems;
+export default SearchItems;

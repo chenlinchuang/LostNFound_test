@@ -8,6 +8,7 @@ import {
   SELECT_PICTURE,
   FIND_SIMILAR_ITEM,
   CLEAR_ALL,
+  SEARCH_ITEM,
 } from "./action-types";
 
 const initialState = {
@@ -18,7 +19,8 @@ const initialState = {
   description: "",
   contact: "",
   pic: undefined,
-  toFindSimilar: false,
+  toFindSimilar: undefined,
+  searchItemName: "",
 };
 
 const foundReducer = (state = initialState, action) => {
@@ -33,6 +35,8 @@ const foundReducer = (state = initialState, action) => {
       return { ...state, category: action.payload };
     case FILL_DESCRIPTION:
       return { ...state, description: action.payload };
+    case SEARCH_ITEM:
+      return { ...state, searchItemName: action.payload };
     case FILL_CONTACT:
       return { ...state, contact: action.payload };
     case SELECT_PICTURE:

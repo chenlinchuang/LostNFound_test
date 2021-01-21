@@ -8,6 +8,7 @@ import {
   SELECT_PICTURE,
   FIND_SIMILAR_ITEM,
   CLEAR_ALL,
+  SEARCH_ITEM,
 } from "./action-types";
 
 export const fillTitle = (payload) => {
@@ -36,6 +37,10 @@ export const fillContact = (payload) => {
 
 export const selectPicture = (payload) => {
   return { type: SELECT_PICTURE, payload };
+};
+
+export const searchItem = (payload) => {
+  return { type: SEARCH_ITEM, payload };
 };
 
 export const findSimilarItem = (payload) => {
