@@ -30,5 +30,6 @@
     "mongodb": "^3.6.3",
     "mongoose": "^5.11.12",
     "uuid": "^8.3.2"
-  }
+  },
+  "type": "module"
 }
