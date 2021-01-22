@@ -7,7 +7,6 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "cd frontend && yarn start",
-    "server": "cd backend && yarn start"
+    "start": "cd frontend && yarn start"
   }
 }
