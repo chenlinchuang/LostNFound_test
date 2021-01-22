@@ -13,7 +13,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import store from "./redux/store";
 
-const httpLink = new HttpLink({ uri: "http://140.112.249.213:80/" });
+const httpLink = new HttpLink({ uri: "http://140.112.249.213:4000/" });
 
 const client = new ApolloClient({
   link: httpLink,

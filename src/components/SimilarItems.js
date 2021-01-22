@@ -9,7 +9,6 @@ import Paper from "@material-ui/core/Paper";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 
-import { useHistory } from "react-router-dom";
 import PostCard from "../mini_components/PostPreview";
 import NoImageIcon from "../static/456.jpg";
 import NoDataImg from "../static/noData.png";
